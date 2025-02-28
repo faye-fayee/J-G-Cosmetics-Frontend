@@ -47,17 +47,18 @@ a {
     /* flex-direction: row; */
 }
 /* Dropdown List under 'SHOP' */
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
 .dropdown button {
     background-color: white;
     color: rgb(180, 101, 101);
     border: 0;
     font-size: 16px;
     padding: 0px 0px 1px 0px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
 }
 
 .dropdown a {
@@ -70,12 +71,12 @@ a {
     position: absolute;
     z-index: 1;
     margin-top: 2vh;
+    overflow: auto;
 }
 
 .dropdown-list a {
     text-decoration: none;
     display: block;
-    
 }
 
 .dropdown-list a:hover {
@@ -87,11 +88,15 @@ a {
     background-color: rgb(255, 255, 255);
 }
 
+.show {
+    display: block;
+}
+
 /* LOGO at the top*/
 .img-logo img {
     height: 13vh;
     width: auto;
-    margin-left: 80%;
+    margin-left: 99%;
 }
 
 /* Right Part of the Navigation */
