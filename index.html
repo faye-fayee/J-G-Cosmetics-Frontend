@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J&G Cosmetics</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
 </head>
 <body>
     <main>
@@ -12,11 +13,14 @@
             <header class="navbar">
                 <nav class="left-nav">
                     <div class="unstyled-home-text">
-                        <a href="#">HOME</a>
+                        <strong><a href="#">HOME</a> </strong>
                     </div>
                     <div class="dropdown">
-                        <button onclick="myFunction()" class="shop-btn">SHOP</button>
+                        <strong>
+                            <button onclick="myFunction()" class="shop-btn">SHOP</button>
+                        </strong>
                         <div id="myDropdown" class="dropdown-list">
+                            <a href="#">All Products</a>
                             <a href="#">Lips</a>
                             <a href="#">Eyes</a>
                             <a href="#">Brows</a>
@@ -31,13 +35,18 @@
                     </a>
                 </div>
                 <nav class="right-nav">
-                    <div>
-                        <input type="text" id="search-input" placeholder="Search...">
+                    <div class="search-div">
+                        <form>
+                            <div class="search">
+                                <span class="search-icon material-symbols-outlined">search</span>
+                                <input class="search-input" type="search" placeholder="Search">
+                            </div>
+                        </form>
                     </div>
-                    <div>
+                    <div class="far-right">
                         <ul class="unstyled-list-nav-right">
-                            <li><a href="#">CART</a></li>
-                            <li><a href="#">PROFILE</a></li>
+                            <strong><li><a href="#">CART</a></li></strong>
+                            <strong><li><a href="#">PROFILE</a></li></strong>
                         </ul>
                     </div>
                 </nav>
@@ -59,6 +68,7 @@
                 <div class="product-category">
                     <h2>SHOP</h2>
                     <ul class="category-unstyled-list">
+                        <li><a href="#">All Products</a></li>
                         <li><a href="#">Lips</a></li>
                         <li><a href="#">Eyes</a></li>
                         <li><a href="#">Brows</a></li>

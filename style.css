@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 
 }
 
@@ -9,6 +9,12 @@ a {
 
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
 
 
 .category-unstyled-list {
@@ -35,6 +41,7 @@ a {
     align-items: center;
     background-color: rgb(255, 255, 255);
     height: 10vh;
+    
 }
 
 .unstyled-home-text a {
@@ -44,16 +51,18 @@ a {
 
 .left-nav {
     display: flex;
+    padding-right: 5%;
     /* flex-direction: row; */
 }
 /* Dropdown List under 'SHOP' */
 .dropdown button {
     background-color: white;
-    color: rgb(180, 101, 101);
+    color: rgba(180, 101, 101, 0.975);
     border: 0;
     font-size: 16px;
-    padding: 0px 0px 1px 0px;
+    padding: 0px 0px 4px 0px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .dropdown {
@@ -94,30 +103,49 @@ a {
 
 /* LOGO at the top*/
 .img-logo img {
-    height: 13vh;
+    height: 10vh;
     width: auto;
-    margin-left: 99%;
+    margin-left: 120%;
 }
+
+
+.search {
+    --padding: 12px;
+
+
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background-color: #f6f6f6;
+}
+
+.search-input {
+
+    font-size: 18px;
+    color: rgb(180, 101, 101);
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+
+
 
 /* Right Part of the Navigation */
 .right-nav {
     display: flex;
-    justify-content: space-between;
-
 }
 
-.right-nav input {
-    display: flex;
-    flex: auto;
-}
 
 .right-nav ul {
     display: flex;
 }
 
 .unstyled-list-nav-right {
-    margin: 0;
-    padding: 0;
+    padding-left: 0;
     list-style-type: none;
 }
 
@@ -125,6 +153,9 @@ a {
     color: rgb(180, 101, 101);
     padding: 2vh 2vh 2vh 2vh;
 }
+
+
+
 /* Body Part */
 .hero {
     height: 60vh;
@@ -132,6 +163,7 @@ a {
 
 .hero-container {
     text-align: center;
+    padding: 15vh 5vh 5vh 5vh;
 }
 
 /* Footer */
@@ -140,12 +172,10 @@ footer .footer-content {
     display: flex;
     flex: auto;
     padding-bottom: 5%;
-
     justify-content: space-between;
     align-items: center;
-    background-color:rgb(136, 137, 137) ;
+    background-color:rgba(187, 189, 189, 0.575) ;
     height: 30vh;
-    color: rgb(0, 0, 0);
 }
 
 .brand-info {
