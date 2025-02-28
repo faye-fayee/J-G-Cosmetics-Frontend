@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+
+}
+
+
+
+.category-unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.category-unstyled-list a {
+    color: white;
+}
+/* Whole Section from Nav to Hero */
+.main-section {
+    background-color: rgb(255, 255, 255);
+    background-image:url(/img/hero-background-img.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 10vh;
+}
+
+.unstyled-home-text a {
+    color: rgb(180, 101, 101);
+    padding: 2vh 2vh 2vh 2vh;
+}
+
+.left-nav {
+    display: flex;
+    /* flex-direction: row; */
+}
+/* Dropdown List under 'SHOP' */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown button {
+    background-color: white;
+    color: rgb(180, 101, 101);
+    border: 0;
+    font-size: 16px;
+    padding: 0px 0px 1px 0px;
+}
+
+.dropdown a {
+    color: rgb(180, 101, 101);
+    padding: 2vh 2vh 2vh 2vh;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    margin-top: 2vh;
+}
+
+.dropdown-list a {
+    text-decoration: none;
+    display: block;
+    
+}
+
+.dropdown-list a:hover {
+    background-color: rgb(223, 206, 206);
+}
+
+.dropdown:hover .dropdown-list {
+    display: block;
+    background-color: rgb(255, 255, 255);
+}
+
+/* LOGO at the top*/
+.img-logo img {
+    height: 13vh;
+    width: auto;
+    margin-left: 80%;
+}
+
+/* Right Part of the Navigation */
+.right-nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.right-nav input {
+    display: flex;
+    flex: auto;
+}
+
+.right-nav ul {
+    display: flex;
+}
+
+.unstyled-list-nav-right {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.unstyled-list-nav-right a {
+    color: rgb(180, 101, 101);
+    padding: 2vh 2vh 2vh 2vh;
+}
+/* Body Part */
+.hero {
+    height: 60vh;
+}
+
+.hero-container {
+    text-align: center;
+}
+
+/* Footer */
+
+footer .footer-content {
+    display: flex;
+    flex: auto;
+    padding-bottom: 5%;
+
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(136, 137, 137) ;
+    height: 30vh;
+    color: rgb(0, 0, 0);
+}
+
+.brand-info {
+    padding-left: 4%
+}
+
+.product-category {
+    padding-right: 5%;
+}
+
+.product-category li {
+    color: white;
+}
+
