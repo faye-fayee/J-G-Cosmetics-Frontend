@@ -23,7 +23,7 @@ a {
 /* Whole Section from Nav to Hero */
 .main-section {
     background-color: rgb(255, 255, 255);
-    background-image:url(/img/hero-background-img.png);
+    background-image:url(img/hero-background-img.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
