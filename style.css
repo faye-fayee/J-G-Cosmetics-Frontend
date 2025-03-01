@@ -108,6 +108,7 @@ body {
     width: inherit;
     /* padding-right: 1.824vh; */
     overflow: auto;
+    background-color: #ffffff;
 }
 
 .dropdown-list a {
@@ -116,12 +117,16 @@ body {
 }
 
 .dropdown-list a:hover {
-    background-color: rgb(223, 206, 206);
+    background-color: rgb(242, 242, 242);
 }
 
-.dropdown:hover .dropdown-list {
+/* .dropdown:hover .dropdown-list {
     display: block;
     background-color: rgb(255, 255, 255);
+} */
+
+.show {
+    display: block;
 }
 
 /* LOGO at the top*/
