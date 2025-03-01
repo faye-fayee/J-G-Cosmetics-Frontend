@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J&G Cosmetics</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_drop_down,search" />
 </head>
 <body>
     <main>
@@ -18,7 +17,10 @@
                     </div>
                     <div class="dropdown">
                         <strong>
-                            <button onclick="myFunction()" class="shop-btn">SHOP</button>
+                            <button onclick="myFunction()" class="shop-btn">SHOP
+                            <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
+
+                            </button>
                         </strong>
                         <div id="myDropdown" class="dropdown-list">
                             <a href="#">All Products</a>
@@ -39,7 +41,9 @@
                     <div class="search-div">
                         <form>
                             <div class="search">
-                                <span class="search-icon material-symbols-outlined">search</span>
+                                <span class="search-icon material-symbols-outlined">
+                                    search
+                                    </span>
                                 <input class="search-input" type="search" placeholder="Search for a product...">
                             </div>
                         </form>
