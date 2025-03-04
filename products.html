@@ -3,9 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>All Products</title>
 </head>
 <body>
-    
+    <main>
+        <section class="main-section">
+            <header class="navbar">
+                <nav class="left-nav">
+                    <div class="img-logo">
+                        <a href="#">
+                        <img src="img/LOGO (NO BG).png" alt="">
+                        </a>
+                    </div>
+                    <div class="unstyled-home-text">
+                        <strong><a href="index.html">HOME</a> </strong>
+                    </div>
+                    <div class="dropdown">
+                        <strong>
+                            <button onclick="myFunction()" class="shop-btn">SHOP
+                            <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
+                            </button>
+                        </strong>
+                        <div id="myDropdown" class="dropdown-list">
+                            <a href="#">All Products</a>
+                            <a href="#">Lips</a>
+                            <a href="#">Eyes</a>
+                            <a href="#">Brows</a>
+                            <a href="#">Cheeks</a>
+                            <a href="#">Tools</a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <nav class="right-nav">
+                    <div class="search-div">
+                        <form>
+                            <div class="search">
+                                <span class="search-icon material-symbols-outlined">search</span>
+                                <input class="search-input" type="search" placeholder="Search for a product...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="far-right">
+                        <a href=""><span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span></a>
+                        <a href=""><span class="person-icon material-symbols-outlined">person</span></a>
+                    </div>
+                </nav>
+            </header>
+        </section>
+    </main>
+
 </body>
 </html>
