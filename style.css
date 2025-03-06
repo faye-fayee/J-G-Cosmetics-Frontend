@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     box-sizing: border-box;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; */
-    font-family: 'Inter', serif;
-
+    font-family: 'Inter', sans-serif;
+    
 }
 
 a {
@@ -26,13 +27,13 @@ body {
 .navbar {
     display: flex;
     flex: auto;
+    height: 10%;
+    width: 100%;
+    /* min-width: max-content; */
+    padding: 0 12vh;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    height: 10%;
-    width: 100%;
-    padding-left: 12vh;
-    padding-right: 12vh;
     border-bottom: .2vh solid #c6c3c3;
 }
 
@@ -55,19 +56,18 @@ body {
 
 /* Dropdown List under 'SHOP' */
 .dropdown button {
-    background-color: white;
-    color: rgba(190, 108, 108, 0.975);
-    border: 0;
-    font-size: 2vh;
-    cursor: pointer;
-    font-weight: bold;
     padding: 1.824vh;    
     margin: 1.824vh;
+    border: 0;
+    background-color: white;
+    color: rgba(190, 108, 108, 0.975);
+    font-weight: bold;
+    font-size: 2vh;
+    cursor: pointer;
 }
 
 .dropdown button:hover {
     background-color: #f6f6f6;
-
 }
 
 .dropdown span {
@@ -93,11 +93,11 @@ body {
 .dropdown-list {
     display: none;
     position: absolute;
-    z-index: 1;
+    overflow: auto;
     max-width: max-content;
     width: inherit;
-    overflow: auto;
     background-color: #ffffff;
+    z-index: 1;
 }
 
 .dropdown-list a {
@@ -119,26 +119,24 @@ body {
     width: fit-content;
 }
 
-
 .search-icon {
     color: rgb(180, 101, 101);
+    font-size: 21px;
 }
 
 .search {
     --padding: 12px;
 
-
-    width: max-content;
     display: flex;
     align-items: center;
+    width: max-content;
     padding: var(--padding);
     border-radius: 21px;
     background-color: #f6f6f6;
 }
 
 .search-input {
-
-    font-size: 18px;
+    font-size: 1.8vh;
     color: rgb(180, 101, 101);
     margin-left: var(--padding);
     outline: none;
@@ -167,40 +165,45 @@ body {
     margin: 0.912vh;
 }
 
-.right-nav .shopping-cart-icon {
+.right-nav .shopping-cart-icon, .right-nav .person-icon {
     font-size: 3vh;
 }
 
-.right-nav .person-icon {
-    font-size: 3vh;
-}
 
 .right-nav span:hover {
     background-color: #f6f6f6;
-
 }
 
 /* Body Part */
 .hero {
-    background-image:url(img/hero-background-img.png);
-    background-repeat: no-repeat;
+    background-image:url(img/Home.png);
+    background-position-y: 100%;
     background-size: 100%;
-    padding: 16% 25% 8% 7%;
+    background-repeat: no-repeat;
+    text-align: center;
     padding-left: 15vh;
-    padding-right: 12vh;
-    height: 60%;
-    /* font-family: 'Inter', serif; */
+    padding-right: 15vh;
+    padding-top:16vh;
+    padding-bottom: 38vh;
+    width: 100%;
+    height: 50%;
+    min-width: max-content;
+    color: #1e1c1c;
 }
 
 
 .hero-container p{
-    text-align: justify;
+    text-align: center;
     padding: 0%;
 
 }
 
+.hero-subheading {
+    font-weight: 500;
+}
+
 .hero-container h1 {
-    font-family: 'Inter',serif;
+    /* font-family: 'Inter',serif; */
     font-weight: bold;
     font-size: 6vh;
     margin: 1vh 1vh 1vh 0vh;
@@ -208,28 +211,23 @@ body {
 
 .hero a {
     font-size: 1.4vh;
+    font-weight: 500;
     text-decoration: none;
-    color: white;
-    background-color:rgba(180, 101, 101, 0.849);
     padding: 1.2vh;
-    margin-left: 0;
-    margin-top: 5vh;
+    margin: 5vh 0;
     border-radius: 2vh;
+    color: white;
+    background-color:rgba(180, 101, 101, 1);
 }
 
 .hero a:hover {
-    background-color:rgba(106, 70, 70, 0.849);
-
+    background-color:rgb(179, 114, 114);
 }
 
 footer {
     border-top: .2vh solid #c6c3c3;
-
-    padding-bottom: 3vh;
-    padding-top: 3vh;
-    padding-left: 14vh;
-    padding-right: 14vh;
-    height: 30%;
+    padding: 1vh 14vh;
+    height: 20%;
 }
 
 .footer-content {
@@ -237,9 +235,9 @@ footer {
     justify-content: stretch;
 }
 
-.footer-content h3 {
-    margin-top: 0 ;
+.footer-content h4 {
     margin-bottom: 1vh;
+    margin-top: 1vh;
     text-align: left;
     color: #302d2d;
 }
@@ -250,28 +248,31 @@ footer {
 
 .category-list {
     padding:0%;
-
+    margin: 0;
 }
 
 .category-list li {
     display: inline;
     list-style: none;
     float: initial;
-
+    font-size: 13px;
 }
 
 .category-list a {
     color:rgba(180, 101, 101, 0.849);
     font-weight: 500;
+    padding-right: 2vh;
 }
 
 .social-media-icon-list {
     padding-left: 0;
+    margin-top: 0;
 }
 
 .social-media-icon-list li {
     display: inline;
     list-style: none;
+
 }
 
 .fb-icon, .ig-icon, .x-icon, .shopee-icon {
@@ -279,5 +280,7 @@ footer {
 }
 
 .contact-info p{
-    color: #3d3c3c;
+    color: rgb(180, 101, 101);  
+    font-weight: 500;
+    font-size: 13px;
 }
