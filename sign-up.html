@@ -54,16 +54,19 @@
                     </div>
                 </nav>
             </header>
-            <div class="log-in-form-container">
-                <h1>Login</h1>
+            <div class="sign-up-form-container">
+                <h1>Sign up</h1>
                 <form action="">
+                    <label hidden for="fname">First Name</label>
+                    <input type="text" placeholder="First Name" name="fname" required>
+                    <label hidden for="lname">Last Name</label>
+                    <input type="text" placeholder="Last Name" name="lname" required>
                     <label hidden for="uname">Username</label>
                     <input type="text" placeholder="Username" name="uname" required>
                     <label hidden for="pws">Password</label>
                     <input type="password" placeholder="Password" name="pws" required>
-                <p><a href="#">Forgot your password?</a></p>
-                <button class="submit-login-btn" type="submit">Sign In</button>
-                <p><a href="sign-up.html">Create account</a></p>
+                    <p><button class="submit-signup-btn" type="submit">Create</button></p>
+                
                 </form>
             </div>
         <footer>

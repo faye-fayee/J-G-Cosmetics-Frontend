@@ -298,13 +298,24 @@ footer {
     margin-bottom: 5vh;
 }
 
-input[type="text"], input[type="password"] {
+.log-in-form-container input[type="text"] {
     width: 100%;
     display: inline-block;
     background-color: #ffffff;
     border: .1vh solid #c4c4c4;
     margin-bottom: 1vh;
-    padding: 1vh;
+    padding: 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.log-in-form-container input[type="password"] {
+    width: 100%;
+    display: inline-block;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 1vh;
+    padding: 1vh 2vh;
     box-sizing: border-box;
     font-size: 2vh;
 }
@@ -312,7 +323,6 @@ input[type="text"], input[type="password"] {
 .log-in-form-container p {
     margin: 0%;
     margin-bottom: 6vh;
-
 }
 
 .log-in-form-container a {
@@ -341,4 +351,56 @@ input[type="text"], input[type="password"] {
 .log-in-form-container p:last-child a:last-child {
     font-size: 1.8vh;
     color: black;
+}
+
+.sign-up-form-container {
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.sign-up-form-container input[type="text"]{
+    display: inline-block;
+    inline-size: 50%;
+    margin-inline-start: 25%;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 1vh;
+    padding: 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.sign-up-form-container input[type="password"] {
+    display: inline-block;
+    inline-size: 50%;
+    margin-inline-start: 25%;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 1vh;
+    padding: 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.sign-up-form-container  h1 {
+    font-size: 6vh;
+    margin-bottom: 5vh;
+}
+
+.sign-up-form-container p {
+    margin: 0%;
+    margin-top: 6vh;
+}
+
+.submit-signup-btn {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 3vh;
+    font-size: 2vh;
+    cursor: pointer;
 }
