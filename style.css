@@ -284,3 +284,61 @@ footer {
     font-weight: 500;
     font-size: 13px;
 }
+
+.log-in-form-container {
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.log-in-form-container h1 {
+    font-size: 6vh;
+    margin-bottom: 5vh;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    display: inline-block;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 1vh;
+    padding: 1vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.log-in-form-container p {
+    margin: 0%;
+    margin-bottom: 6vh;
+
+}
+
+.log-in-form-container a {
+    color: rgb(0, 0, 0);
+    font-size: 1.8vh;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.submit-login-btn {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 3vh;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+.log-in-form-container p:last-child {
+    text-align: center;
+    margin: .5vh 0;
+}
+
+.log-in-form-container p:last-child a:last-child {
+    font-size: 1.8vh;
+    color: black;
+}
