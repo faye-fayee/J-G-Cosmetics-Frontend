@@ -9,8 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="log-in.js"></script>
 </head>
 <body>
+    <script src="log-in.js"></script>
     <main>
         <section class="main-section">
             <header class="navbar">
@@ -56,11 +58,17 @@
             </header>
             <div class="log-in-form-container">
                 <h1>Login</h1>
-                <form action="">
+                <form autocomplete="off" id="log_in_form">
+
                     <label hidden for="uname">Username</label>
-                    <input type="text" placeholder="Username" name="uname" required>
-                    <label hidden for="pws">Password</label>
-                    <input type="password" placeholder="Password" name="pws" required>
+                    <input type="text" placeholder="Username" name="uname" id="uname" required>
+                    <small class="error-message"></small>
+
+                    <label hidden for="psw">Password</label>
+                    <input type="password" placeholder="Password" name="pws" id="psw" required>
+                    <small class="error-message" ></small> 
+
+
                 <p><a href="#">Forgot your password?</a></p>
                 <button class="submit-login-btn" type="submit">Sign In</button>
                 <p><a href="sign-up.html">Create account</a></p>

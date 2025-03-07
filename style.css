@@ -353,6 +353,14 @@ footer {
     color: black;
 }
 
+.log-in-form-container .error-message {
+    display: block;      /* Ensures it takes up space */
+    height: 16px;        /* Adjust height to match text */
+    font-size: 11px;     /* Make the text smaller */
+    color: red;          /* Error message color */
+    margin-top: 1px;     /* Keep a small gap */
+}
+
 .sign-up-form-container {
     justify-items: center;
     align-content: center;

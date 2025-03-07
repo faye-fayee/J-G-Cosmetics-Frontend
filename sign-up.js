@@ -34,11 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return password.length >= 6; // Makes sure it is at least 6 characters long
     }
 
-    function isEmpty(input) {
-        return input.value.trim() === ""; //
-    }
-
-
     // Event Listeners for the input fields
     fNameInput.addEventListener("input", function() {
         if (!validateFName(fNameInput.value)) {
@@ -64,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    passwordInput.addEventListener("input", function() {
+    passwordInput.addEventListener("blur", function() {
         if (!validatePassword(passwordInput.value)) {
             showMessage(passwordInput, 'Password must be at least 6 characters long');
         } else {
