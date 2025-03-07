@@ -404,3 +404,10 @@ footer {
     font-size: 2vh;
     cursor: pointer;
 }
+
+.sign-up-form-container small {
+    font-size: 12px;
+    position: fixed;
+    transform: translateY(60%);
+    padding-left: 3vh;
+}
