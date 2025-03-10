@@ -60,7 +60,7 @@ body {
     margin: 1.824vh;
     border: 0;
     background-color: white;
-    color: rgba(190, 108, 108, 0.975);
+    color: rgb(180, 101, 101);
     font-weight: bold;
     font-size: 2vh;
     cursor: pointer;
@@ -91,6 +91,7 @@ body {
 }
 
 .dropdown-list {
+    margin-top: .4vh;
     display: none;
     position: absolute;
     overflow: auto;
@@ -98,11 +99,13 @@ body {
     width: inherit;
     background-color: #ffffff;
     z-index: 1;
+    border: .1vh solid #c4c4c4;
 }
 
 .dropdown-list a {
     text-decoration: none;
     display: block;
+    font-size: 1.6vh;
 }
 
 .dropdown-list a:hover {
@@ -423,4 +426,80 @@ footer {
 
 .accdets-button {
     display: block;
+}
+
+.all-products-container h1{
+    text-align: center;
+
+}
+
+.products-nav {
+    display: flex;
+    flex:auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 12.5vh; 
+}
+
+.left-products-nav {
+    display: flex;
+    align-items: center;
+    margin-left: 1.824vh;
+}
+
+.dropdown-price {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-price button {
+    margin-left: 1.8vh;
+    padding-left: 1.8vh;
+    border: 0;
+    background-color: white;
+    font-weight: bold;
+    font-size: 2.2vh;
+    cursor: pointer;
+}
+
+.dropdown-price span {
+    transform: translateY(10%);
+    align-items: center;
+    z-index: 1;
+    padding: 0;
+    font-size: 1.824vh;
+}
+
+.dropdown-price-list {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #ffffff;
+    max-width: max-content;
+    width: inherit;
+    border: .1vh solid #c4c4c4;
+    margin-top: 2.1vh;
+}
+
+.dropdown-price-list.show {
+    display: block;
+}
+
+.dropdown-price-list a {
+    text-decoration: none;
+    display: block;
+    font-size: 2vh;
+    color: #000000;
+    padding: 2vh 5vh 2vh 2vh;
+    width: max-content;
+}
+
+.dropdown-price-list a:hover {
+    background-color: rgb(242, 242, 242);
+}
+
+.right-products-nav {
+    display: flex;
+    align-items: center;
+    margin-right: 1.824vh;
 }
