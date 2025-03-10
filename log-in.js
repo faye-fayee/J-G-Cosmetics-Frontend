@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return password.length >= 6; // Makes sure it is at least 6 characters long
     }
 
+    function emptyField (input) {
+        return input === " ";
+    }
+
     // event listeners for the input fields
     uNameInput.addEventListener("input", function() {
         if (!validateUName(uNameInput.value)) {
@@ -40,14 +44,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    form.addEventListener('submit', function(event) {
-        if (!validateUName(uNameInput.value)) {
-            showMessage(uNameInput, 'Username must contain only letters and numbers');
+    //Event listener for the submit button
+    form.addEventListener("submit", function(event) {
+        if (uNameInput.value === "") {
+            alert('Username and password must not be empty');
             event.preventDefault();
-        }
-        if (!validatePassword(passwordInput.value)) {
-            showMessage(passwordInput, 'Password must be at least 6 characters long');
+        } else if (passwordInput.value === "") {    
+            alert('Username and password must not be empty');
+            event.preventDefault();
+        } else if (!validateUName(uNameInput.value)) {
+            alert('Username must contain only letters and numbers');
+            event.preventDefault();
+        } else if (!validatePassword(passwordInput.value)) {
+            alert('Password must be at least 6 characters long');
             event.preventDefault();
         }
     });
+
+    // function submitForm() {
+    //     if (uNameInput.value === "") {
+    //         alert('Username and password must not be empty');
+    //         event.preventDefault();
+    //     } else if (passwordInput.value === "") {    
+    //         alert('Username and password must not be empty');
+    //         event.preventDefault();
+    //     } else if (!validateUName(uNameInput.value)) {
+    //         alert('Username must contain only letters and numbers');
+    //         event.preventDefault();
+    //     } else if (!validatePassword(passwordInput.value)) {
+    //         alert('Password must be at least 6 characters long');
+    //         event.preventDefault();
+    //     }
+    // }
 });

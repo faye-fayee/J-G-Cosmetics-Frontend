@@ -305,6 +305,7 @@ footer {
     border: .1vh solid #c4c4c4;
     margin-bottom: 1vh;
     padding: 1vh 2vh;
+    padding-right: 30vh;
     box-sizing: border-box;
     font-size: 2vh;
 }
@@ -374,7 +375,7 @@ footer {
     margin-inline-start: 25%;
     background-color: #ffffff;
     border: .1vh solid #c4c4c4;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     padding: 1vh 2vh;
     box-sizing: border-box;
     font-size: 2vh;
@@ -413,7 +414,7 @@ footer {
     cursor: pointer;
 }
 
-.sign-up-form-container small {
+.sign-up-form-container small { 
     font-size: 12px;
     position: fixed;
     transform: translateY(60%);

@@ -61,16 +61,16 @@
                 <form autocomplete="off" id="log_in_form">
 
                     <label hidden for="uname">Username</label>
-                    <input type="text" placeholder="Username" name="uname" id="uname" required>
+                    <input type="text" placeholder="Username" name="uname" id="uname">
                     <small class="error-message"></small>
 
                     <label hidden for="psw">Password</label>
-                    <input type="password" placeholder="Password" name="pws" id="psw" required>
+                    <input type="password" placeholder="Password" name="pws" id="psw">
                     <small class="error-message" ></small> 
 
 
                 <p><a href="#">Forgot your password?</a></p>
-                <button class="submit-login-btn" type="submit">Sign In</button>
+                <button id="submit_button" onclick="submitForm()" class="submit-login-btn" type="submit">Sign In</button>
                 <p><a href="sign-up.html">Create account</a></p>
                 </form>
             </div>
@@ -129,7 +129,6 @@
                 <div class="contact-info">
                     <h4>CONTACT US</h4>
                     <em><p>jgcosmetics@gmail.com</p></em>
-                    
                 </div>
             </div>
         </footer>
