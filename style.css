@@ -420,3 +420,7 @@ footer {
     transform: translateY(60%);
     padding-left: 3vh;
 }
+
+.accdets-button {
+    display: block;
+}

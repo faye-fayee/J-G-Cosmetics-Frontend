@@ -71,23 +71,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event Listener for the submit form
     form.addEventListener('submit', function(event) {
 
-        if (!validateFName(fNameInput.value)) {
-            showMessage(fNameInput, 'First name must contain only letters');
+        if (fNameInput.value === '') {
+            alert('First name must be filled out');
             event.preventDefault();
-        }
-
-        if (!validateLName(lNameInput.value)) {
-            showMessage(lNameInput, 'Last name must contain only letters');
+        } else if (lNameInput.value === '') {
+            alert('Last name must be filled out');
             event.preventDefault();
-        }
-
-        if (!validateUName(uNameInput.value)) {
-            showMessage(uNameInput, 'Username must contain only letters and numbers');
+        } else if (uNameInput.value === '') {
+            alert('Username must be filled out');
             event.preventDefault();
-        }
-
-        if (!validatePassword(passwordInput.value)) {
-            showMessage(passwordInput, 'Password must be at least 6 characters long');
+        } else if (passwordInput.value === '') {
+            alert('Password must be filled out');
+            event.preventDefault();
+        } else if (!validateFName(fNameInput.value)) {
+            alert('First name must contain only letters');
+            event.preventDefault();
+        } else if (!validateLName(lNameInput.value)) {
+            alert('Last name must contain only letters');
+            event.preventDefault();
+        } else if (!validateUName(uNameInput.value)) { 
+            alert('Username must contain only letters and numbers');
+            event.preventDefault();
+        } else if (!validatePassword(passwordInput.value)) {
+            alert('Password must be at least 6 characters long');
             event.preventDefault();
         }
     });
