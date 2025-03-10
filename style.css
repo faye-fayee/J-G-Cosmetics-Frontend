@@ -228,6 +228,7 @@ body {
 }
 
 footer {
+    display: block;
     border-top: .2vh solid #c6c3c3;
     padding: 1vh 14vh;
     height: 20%;
@@ -236,6 +237,7 @@ footer {
 .footer-content {
     display: flex;
     justify-content: stretch;
+    position: relative;
 }
 
 .footer-content h4 {
@@ -503,3 +505,32 @@ footer {
     align-items: center;
     margin-right: 1.824vh;
 }
+
+.products-card-container {
+    display: flex;
+    padding: 0vh 12.5vh; 
+    justify-content: space-between;
+
+}
+
+.products-card {
+    background-color: #c6c3c3;
+    width: 24vh;
+}
+
+.products-card ul {
+    padding: 0vh 2vh;
+}
+
+.products-card img{
+    display: grid;
+    height: 20vh;
+}
+
+.products-card li {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
