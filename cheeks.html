@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <script src="log-in.js"></script>
+    <script src="sign-up.js"></script>
     <script src="index.js"></script>
+    <script src="products.js"></script>
+
 </head>
 <body>
-    <script src="log-in.js"></script>
     <main>
         <section class="main-section">
             <header class="navbar">
@@ -37,7 +38,7 @@
                             <a href="lips.html">Lips</a>
                             <a href="eyes.html">Eyes</a>
                             <a href="brows.html">Brows</a>
-                            <a href="eyes.html">Cheeks</a>
+                            <a href="cheeks.html">Cheeks</a>
                             <a href="#">Tools</a>
                         </div>
                     </div>
@@ -57,24 +58,39 @@
                     </div>
                 </nav>
             </header>
-            <div class="log-in-form-container">
-                <h1>Login</h1>
-                <form autocomplete="off" id="log_in_form">
+            <div class="all-products-container">
+                <h1 class="products-h1">All Products</h1>
+                <div class="products-nav">
 
-                    <label hidden for="uname">Username</label>
-                    <input type="text" placeholder="Username" name="uname" id="uname">
-                    <small class="error-message"></small>
-
-                    <label hidden for="psw">Password</label>
-                    <input type="password" placeholder="Password" name="pws" id="psw">
-                    <small class="error-message" ></small> 
-
-
-                <p><a href="#">Forgot your password?</a></p>
-                <button id="submit_button" onclick="submitForm()" class="submit-login-btn" type="submit">Sign In</button>
-                <p><a href="sign-up.html">Create account</a></p>
-                </form>
+                    <div class="left-products-nav">
+                        <p>Filter: </p>
+                        <div class="dropdown-price">
+                            <button onclick="myDropdownPrice()" class="price-dropdown-btn">Price
+                                <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
+                            </button>
+                            <div id="myPriceDropdown" class="dropdown-price-list">
+                                <a href="">Highest to Lowest</a>
+                                <a href="">Lowest to Highest</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-products-nav">
+                        <p>15 products</p>
+                    </div>
+                </div>
             </div>
+            <div class="products-card-container">
+                <div class="products-card">
+                    <img src="img/blushes/blushes-main.png" alt="">
+                    <ul>
+                        <li><p>Dreamy Matte Blush</p></li>
+                        <li><p>₱349</p></li>
+                        <li><a href="">Cheeks</a></li>
+                        <li><button>Add to Cart</button></li>
+                    </ul>
+                </div>
+            </div>
+            
         <footer>
             <div class="footer-content">
                 <div>
@@ -130,6 +146,7 @@
                 <div class="contact-info">
                     <h4>CONTACT US</h4>
                     <em><p>jgcosmetics@gmail.com</p></em>
+                    
                 </div>
             </div>
         </footer>
