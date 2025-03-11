@@ -112,9 +112,13 @@ body {
     background-color: rgb(242, 242, 242);
 }
 
-.show {
+.dropdown-list.show {
     display: block;
 }
+
+/* .show {
+    display: block;
+} */
 
 /* LOGO at the top*/
 .img-logo img {
@@ -509,10 +513,10 @@ footer {
 
 .products-card-container {
     display: grid;
-    padding: 0vh 12.5vh; 
+    padding: 0vh 20vh; 
     /* border: 2px solid yellow; */
-    grid-template-columns: repeat(5, minmax(15vh, 1fr));
-    grid-template-rows: repeat(5, minmax(15vh, 1fr));
+    grid-template-columns: repeat(4, minmax(14vh, 1fr));
+    grid-template-rows: repeat(3, minmax(15vh, 1fr));
     gap: 2vh;
 
 }
@@ -551,9 +555,8 @@ footer {
 }
 
 .products-card button:hover {
-    background-color: rgb(227, 153, 153);
+    background-color: rgb(224, 166, 166);
 }
-
 
 
 .products-card li:first-child {
@@ -583,4 +586,3 @@ footer {
     color: rgb(0, 0, 0);
     margin: 0%;
 }
-

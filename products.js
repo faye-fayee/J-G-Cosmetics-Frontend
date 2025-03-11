@@ -1,6 +1,5 @@
 function myDropdownPrice() {
     document.getElementById("myPriceDropdown").classList.toggle("show");
-    console.log("clicked");
 }
 
 window.onclick = function(event) {
