@@ -509,7 +509,7 @@ footer {
 
 .products-card-container {
     display: grid;
-    margin: 0vh 12.5vh; 
+    padding: 0vh 12.5vh; 
     /* border: 2px solid yellow; */
     grid-template-columns: repeat(5, minmax(15vh, 1fr));
     grid-template-rows: repeat(5, minmax(15vh, 1fr));
@@ -551,8 +551,10 @@ footer {
 }
 
 .products-card button:hover {
-    background-color: rgb(236, 202, 202);
+    background-color: rgb(227, 153, 153);
 }
+
+
 
 .products-card li:first-child {
     font-weight: 700;
