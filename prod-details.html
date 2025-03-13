@@ -31,7 +31,7 @@
                         <strong>
                             <button onclick="myFunction()" class="shop-btn">SHOP
                                 <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
-                                </button>
+                            </button>
                         </strong>
                         <div id="myDropdown" class="dropdown-list">
                             <a href="products.html">All Products</a>
@@ -60,13 +60,50 @@
             </header>
             
             <div class="product-details-container">
+                
                 <div class="product-img-container">
-                    <img src="img/browpen/browpen-main.webp" alt="">
+
+                    <img id="featured" class="featured-img" src="img/browpen/browpen-main.webp" alt="">
+                    <div id="slide-wrapper">
+                        <div id="slider">
+                            <img class="thumbnail active" src="img/browpen/browpen-main.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/BrowPenPro-Swatch.jpg.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/bss.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/ash.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/coffee.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/taupe.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/peanut.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/bean.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/marble.webp" alt="">
+                            <img class="thumbnail" src="img/browpen/bsss.webp" alt="">
+                        </div>
+                    </div>
+
+                    <script>
+                        let thumbnails = document.getElementsByClassName('thumbnail');
+                        let activeImages = document.getElementsByClassName('active');
+
+                        for (var i = 0; i < thumbnails.length; i++) {
+                            thumbnails[i].addEventListener('mouseover', function(){
+                            if (activeImages.length > 0) {
+                                activeImages[0].classList.remove('active');
+                            }    
+
+                            this.classList.add('active');
+                            document.getElementById('featured').src = this.src;
+                            })     
+                        }
+                                
+                    </script>
+                            
+                        
+                        
                 </div>
+
                 <div class="product-info">
-                    <h3 class="product-title">Precision Brow Pen </h3>
+                    <h3 class="product-title">Precision Brow Pen</h3>
                     <h1 class="product-price">₱349</h1>
-                    <h4>Sculpted to Perfection</h4>
+                    <h4 class="product-tagline">Sculpted to Perfection</h4>
                     <p class="product-description">
                         Elevate your brow game with the J&G Cosmetics Precision Brow Pen, designed for effortless definition 
                         and professional-quality results. This dual-ended tool features an ultra-fine retractable tip for 
@@ -79,16 +116,20 @@
                     </p>
                     <div class="shades-container">
                         <h4>Shades</h4>
-                        <button class="shade-btn">Brown</button>
-                        <button class="shade-btn">Black</button>
-                        <button class="shade-btn">Grey</button>
+                        <button class="shade-btn">Ash</button>
+                        <button class="shade-btn">Coffee</button>
+                        <button class="shade-btn">Taupe</button>
+                        <button class="shade-btn">Peanut</button>
+                        <button class="shade-btn">Bean</button>
+                        <button class="shade-btn">Marble</button>
                     </div>
-                    <div class="addtocart">
+                    <div class="add-to-cart">
                         <input type="number" value="1" min="1" max="10">
                         <button>ADD TO CART</button>
                     </div>
                 </div>
             </div>
+
             <div class="product-reviews">
                 <h1>Customer Reviews</h1>
             </div>
