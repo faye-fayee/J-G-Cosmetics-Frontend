@@ -50,146 +50,165 @@ body {
     background-color: #f6f6f6;
 }
 
+/* 🔹 LEFT NAVIGATION */
 .left-nav {
     display: flex;
     align-items: center;
+    gap: 2vw;
     margin-left: 1.824vh;
 }
 
-/* Dropdown List under 'SHOP' */
+/* 🔹 LOGO */
+.img-logo img {
+    height: 8vh;  /* Reduced for better proportion */
+    width: auto;
+}
+
+/* 🔹 HOME LINK */
+.unstyled-home-text a {
+    font-size: 2vh;
+    color: rgb(180, 101, 101);
+    padding: 1.2vh;
+    text-decoration: none;
+}
+
+.unstyled-home-text a:hover {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+}
+
+/* 🔹 DROPDOWN MENU */
+.dropdown {
+    position: relative;
+}
+
+/* Button inside dropdown */
 .dropdown button {
-    padding: 1.824vh;    
-    margin: 1.824vh;
-    border: 0;
-    background-color: white;
+    padding: 1.5vh;
+    border: none;
+    background-color: transparent;
     color: rgb(180, 101, 101);
     font-weight: bold;
     font-size: 2vh;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
 }
 
 .dropdown button:hover {
     background-color: #f6f6f6;
+    border-radius: 5px;
 }
 
-.dropdown span {
-    transform: translateY(10%);
-    align-items: center;
-    z-index: 1;
-    padding: 0;
-    font-size: 1.824vh;
-}
-
-
-.dropdown {
-    display: inline-block;
-    position: relative;
-}
-
-
-.dropdown a {
-    color: rgb(180, 101, 101);
-    padding: 2vh 5vh 2vh 2vh;
-}
-
+/* 🔹 DROPDOWN LIST */
 .dropdown-list {
-    margin-top: .4vh;
     display: none;
     position: absolute;
-    overflow: auto;
-    max-width: max-content;
-    width: inherit;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
     background-color: #ffffff;
-    z-index: 1;
-    border: .1vh solid #c4c4c4;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5vh 0;
+    z-index: 1100; 
 }
 
-.dropdown-list a {
-    text-decoration: none;
+/* Show dropdown when active */
+.dropdown-list.show {
     display: block;
+}
+
+/* Dropdown links */
+.dropdown-list a {
+    display: block;
+    padding: 1vh 2vh;
     font-size: 1.6vh;
+    color: rgb(180, 101, 101);
+    text-decoration: none;
+    transition: background 0.3s;
 }
 
 .dropdown-list a:hover {
     background-color: rgb(242, 242, 242);
 }
 
-.dropdown-list.show {
-    display: block;
-}
-
-/* .show {
-    display: block;
-} */
-
-/* LOGO at the top*/
-.img-logo img {
-    height: 10vh;
-    width: fit-content;
+/* 🔹 SEARCH BAR */
+.search {
+    display: flex;
+    align-items: center;
+    background-color: #f6f6f6;
+    padding: 0.8vh 1vw;
+    border-radius: 20px;
 }
 
 .search-icon {
     color: rgb(180, 101, 101);
-    font-size: 21px;
-}
-
-.search {
-    --padding: 12px;
-
-    display: flex;
-    align-items: center;
-    width: max-content;
-    padding: var(--padding);
-    border-radius: 21px;
-    background-color: #f6f6f6;
+    font-size: 2.2vh;
 }
 
 .search-input {
     font-size: 1.8vh;
     color: rgb(180, 101, 101);
-    margin-left: var(--padding);
+    margin-left: 0.8vw;
     outline: none;
     border: none;
     background-color: transparent;
+    width: 200px;
 }
 
-
-/* Right Part of the Navigation */
+/* 🔹 RIGHT NAVIGATION */
 .right-nav {
     display: flex;
     align-items: center;
+    gap: 2vw;
     margin-right: 1.824vh;
 }
 
-/* .shopping-cart-container {
-    display: relative;
+/* 🔹 ICONS */
+.shopping-cart-container,
+.person-icon {
+    text-decoration: none;
 }
 
-.shopping-cart-container span:last-of-type {
-    display: inline-block;
-    width: 5px;
-} */
-
-.shopping-cart-icon {
-    color: rgb(180, 101, 101);
-    padding: 1.824vh;
-    margin: 0.912vh;
-    font-size: 2vh;
-}
-
+.shopping-cart-icon,
 .person-icon {
     color: rgb(180, 101, 101);
-    padding: 1.824vh;
-    margin: 0.912vh;
-}
-
-.right-nav .shopping-cart-icon, .right-nav .person-icon {
+    padding: 1.2vh;
     font-size: 3vh;
 }
 
-
-.right-nav span:hover {
+.shopping-cart-icon:hover,
+.person-icon:hover {
     background-color: #f6f6f6;
+    border-radius: 50%;
+}
+
+/* 🔹 MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 1vh;
+    }
+
+    .left-nav, .right-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5vh;
+    }
+
+    .dropdown-list {
+        width: 100%;
+        text-align: center;
+        position: static;
+    }
+
+    .search-input {
+        width: 100%;
+    }
 }
 
 /* Body Part */
