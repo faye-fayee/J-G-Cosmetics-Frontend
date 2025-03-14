@@ -12,7 +12,6 @@
     <script src="index.js"></script>
 </head>
 <body>
-    
     <main>
         <section class="main-section">
             <header class="navbar">
@@ -52,16 +51,18 @@
                         </form>
                     </div>
                     <div class="far-right">
+                        <a href="log-in.html"><span class="person-icon material-symbols-outlined">person</span></a>
+
+
                         <a class="shopping-cart-container" href="">
                             <span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span>
-                            <!-- <span>0</span> -->
+                            <span>0</span>
                         </a>
                         
-                        <a href="log-in.html"><span class="person-icon material-symbols-outlined">person</span></a>
                     </div>
                 </nav>
             </header>
-            
+
             <div class="hero">
                 <div class="hero-container">
                     <div class="hero-subheading">J&G COSMETICS</div>
@@ -131,5 +132,31 @@
             </div>
         </footer>
     </main>
+
+    <div class="cart-tab">
+        <h1>Shopping Cart</h1>
+        <div class="cart-list">
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="img/browpen/bean.webp" alt="">
+                </div>
+                <div class="cart-item-name">
+                    NAME
+                </div>
+                <div class="total-price">
+                    $300
+                </div>
+                <div class="quantity">
+                    <span class="minus"><</span>
+                    <span>1</span>
+                    <span class="plus">></span>
+                </div>
+            </div>
+        </div>
+        <div class="cart-btn">
+            <button class="close-cart-btn">CLOSE</button>
+            <button class="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
 </body>
 </html>

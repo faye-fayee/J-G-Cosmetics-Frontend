@@ -14,3 +14,23 @@ window.onclick = function(event) {
       }
     }
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartIcon = document.querySelector(".shopping-cart-container");
+    const closeCartBtn = document.querySelector(".close-cart-btn");
+    const body = document.body;
+
+    // Ensure cart is hidden when page loads
+    body.classList.remove("show-cart");
+
+    cartIcon.addEventListener("click", (event) => {
+        event.preventDefault();
+        body.classList.toggle("show-cart");
+    });
+
+    closeCartBtn.addEventListener("click", () => {
+        body.classList.remove("show-cart");
+    });
+});
+
+
