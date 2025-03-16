@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Brow Pen Ash",
+        "price": 349,
+        "image": "img/ash.webp"
+    },
+    {
+        "id": 2,
+        "name": "Brow Pen Bean",
+        "price": 349,
+        "image": "img/bean.webp"
+    },
+    {
+        "id": 3,
+        "name": "Brow Pen Taupe",
+        "price": 349,
+        "image": "img/taupe.webp"
+    },
+    {
+        "id": 4,
+        "name": "Brow Pen Peanut",
+        "price": 349,
+        "image": "img/peanut.webp"
+    },
+    {
+        "id": 5,
+        "name": "Brow Pen Bean",
+        "price": 349,
+        "image": "img/bean.webp"
+    },
+    {
+        "id": 6,
+        "name": "Brow Pen Marble",
+        "price": 349,
+        "image": "img/marble.webp"
+    }
+]

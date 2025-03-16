@@ -31,18 +31,19 @@
                         <strong>
                             <button onclick="myFunction()" class="shop-btn">SHOP
                                 <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
-                            </button>
+                                </button>
                         </strong>
                         <div id="myDropdown" class="dropdown-list">
                             <a href="products.html">All Products</a>
                             <a href="lips.html">Lips</a>
                             <a href="eyes.html">Eyes</a>
                             <a href="brows.html">Brows</a>
-                            <a href="eyes.html">Cheeks</a>
+                            <a href="cheeks.html">Cheeks</a>
                             <a href="tools.html">Tools</a>
                         </div>
                     </div>
                 </nav>
+                
                 <nav class="right-nav">
                     <div class="search-div">
                         <form>
@@ -53,8 +54,14 @@
                         </form>
                     </div>
                     <div class="far-right">
-                        <a href=""><span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span></a>
                         <a href="log-in.html"><span class="person-icon material-symbols-outlined">person</span></a>
+
+
+                        <a class="shopping-cart-container" href="">
+                            <span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span>
+                            <span>0</span>
+                        </a>
+                        
                     </div>
                 </nav>
             </header>
@@ -144,9 +151,7 @@
                                 tenetur atque perferendis temporibus. Sapiente, cum sint.
                             </p>
                             <button class="add-review-btn">Add a Review</button>
-
                         </div>
-
                     </div>
             </div>
             
@@ -211,5 +216,31 @@
             </footer>
         </section>
     </main>
+
+    <div class="cart-tab">
+        <h1>Shopping Cart</h1>
+        <div class="cart-list">
+            <div class="cart-item">
+                <div class="cart-item-img">
+                    <img src="img/browpen/bean.webp" alt="">
+                </div>
+                <div class="cart-item-name">
+                    NAME
+                </div>
+                <div class="total-price">
+                    $300
+                </div>
+                <div class="quantity">
+                    <span class="minus">&lt;</span>
+                    <span>1</span>
+                    <span class="plus">&gt;</span>
+                </div>
+            </div>
+        </div>
+        <div class="cart-btn">
+            <button class="close-cart-btn">CLOSE</button>
+            <button class="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
 </body>
 </html>
