@@ -1,38 +1,71 @@
 [
     {
         "id": 1,
-        "name": "Brow Pen Ash",
+        "name": "Brow Pen",
         "price": 349,
-        "image": "img/ash.webp"
+        "category": "Brows",
+        "tagline": "Sculpted to Perfection",
+        "description": "Elevate your brow game with the J&G Cosmetics Precision Brow Pen, designed for effortless definition and professional-quality results. This dual-ended tool features an ultra-fine retractable tip for precise strokes and a high-quality spoolie brush for seamless blending.\n \nSleek & Luxurious Design: A matte black body with minimalist branding for a bold yet elegant touch. \nLong-Lasting & Smudge-Proof: Formulated for all-day wear without fading.  \nBuildable & Natural Finish:Perfect for creating both soft, natural brows and bold, defined looks. ",
+        "images": [
+            "img/browpen/browpen-main.webp",
+            "img/browpen/BrowPenPro-Swatch.jpg.webp",
+            "img/browpen/bss.webp",
+            "img/browpen/ash.webp",
+            "img/browpen/coffee.webp",
+            "img/browpen/taupe.webp",
+            "img/browpen/peanut.webp",
+            "img/browpen/bean.webp",
+            "img/browpen/marble.webp",
+            "img/browpen/bsss.webp"
+        ],
+        "shades": ["Ash", "Coffee", "Taupe", "Peanut", "Bean", "Marble"]
     },
     {
         "id": 2,
-        "name": "Brow Pen Bean",
+        "name": "Precision Pencil Pro",
         "price": 349,
-        "image": "img/bean.webp"
+        "category": "Brows",
+        "tagline": "Sculpt, Define, Perfect",
+        "description": "Elevate your brow game with the J&G Cosmetics Precision Pencil Pro, designed for effortless definition and professional-quality results. This dual-ended tool features an ultra-fine retractable tip for precise strokes and a high-quality spoolie brush for seamless blending.\n \nBrunette – A deep brown with warm undertones, perfect for adding rich dimension and depth. \nGranite - A dark charcoal gray with cool undertones, ideal for bold, defined brows with a striking edge. \nOnyx – A medium gray-brown with a neutral undertone, great for soft yet sculpted brows. \nSavanna – A light caramel brown with warm undertones, perfect for a sun-kissed, natural finish.",
+        "images": [
+            "img/pencilpro/pencilpen-main.png",
+            "img/pencilpro/pencilpen-shades.png",
+            "img/pencilpro/brunette.png",
+            "img/pencilpro/granite.png",
+            "img/pencilpro/onyx.png",
+            "img/pencilpro/savanna.png",
+            "img/pencilpro/pencilpen-component.png"
+        ],
+        "shades": ["Brunette", "Granite", "Onyx", "Savanna"]
     },
     {
         "id": 3,
-        "name": "Brow Pen Taupe",
-        "price": 349,
-        "image": "img/taupe.webp"
+        "name": "Brow Lock Mascara",
+        "price": 399,
+        "category": "Brows",
+        "tagline": "Set, Sculpt, Stay",
+        "description": "J&G Cosmetics Brow Lock Mascara – your secret to effortlessly sculpted, all-day hold brows. This lightweight, flexible formula tames, defines, and locks brows in place without stiffness or flaking. Whether you prefer a natural, feathered look or bold, structured brows, our precision brush ensures even application for a flawless finish. \nAvailable in three versatile shades: \nClear – A transparent, weightless formula that sets and holds brows in place for a polished, natural look. \nTaupe – A soft, neutral-toned hue perfect for enhancing lighter brows with a subtle definition. \nNatural Brown – A warm, medium brown that adds depth and fullness for effortlessly bold brows.",
+        "images": [
+            "img/browlock/browlock-main.png",
+            "img/browlock/browlock-shades.png",
+            "img/browlock/naturalbrown.png",
+            "img/browlock/taupe.png",
+            "img/browlock/clear.png",
+            "img/browlock/browlock-ingredients.png"
+        ],
+        "shades": ["Natural Brown", "Taupe", "Clear"]
     },
     {
-        "id": 4,
-        "name": "Brow Pen Peanut",
-        "price": 349,
-        "image": "img/peanut.webp"
-    },
-    {
-        "id": 5,
-        "name": "Brow Pen Bean",
-        "price": 349,
-        "image": "img/bean.webp"
-    },
-    {
-        "id": 6,
-        "name": "Brow Pen Marble",
-        "price": 349,
-        "image": "img/marble.webp"
+        "id": 11,
+        "name": "Brush Set",
+        "price": "1,349",
+        "category": "Tools",
+        "tagline": "Blend like a Pro",
+        "description": "J&G Cosmetics Pro Brush Set – The ultimate collection for flawless application. Crafted with ultra-soft, high-performance bristles, these precision-designed brushes blend, buff, and sculpt with ease. Whether you're creating a natural glow or a bold, defined look, this luxurious set has everything you need for professional-quality results.\n \nEach brush is designed for effortless control and seamless blending, making it a must-have for beginners and pros alike. Elevate your artistry with tools that match your bold, refined aesthetic.",
+        "images": [
+            "img/brushset/brushset1.webp"
+        ],
+        "shades": []
+
     }
 ]

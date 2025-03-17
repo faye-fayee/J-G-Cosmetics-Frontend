@@ -186,7 +186,6 @@ main {
 .person-icon {
     color: rgb(180, 101, 101);
     padding: 1.2vh;
-    font-size: 3vh;
 }
 
 .shopping-cart-icon:hover,
@@ -674,6 +673,7 @@ footer {
     width: 75%;
     height: 60%;
     align-content: center;
+    object-fit: cover;
     padding-top: 3vh;
     margin-left: auto;
     margin-right: auto;
@@ -737,6 +737,7 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
 
 .product-img-container {
     padding: 2vh;
@@ -819,7 +820,6 @@ footer {
 
 .product-info p:nth-of-type(2) {
     font-size: 2vh;
-
     text-align: justify;
     font-weight: 300;
 }
@@ -919,7 +919,4 @@ footer {
 .review-card p {
     margin: 0vh;
     padding-bottom: 2vh;
-}
-.material-symbols-outlined {
-    color: rgb(180, 101, 101, 0.849);
 }

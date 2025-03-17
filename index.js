@@ -38,44 +38,44 @@ window.onclick = function(event) {
 
     });
 
-    const addDatatoHTML = () => {
-      listProductsHTML.innerHTML = ' ';
-      if(listProducts.length > 0) {
-          listProducts.forEach (product => {
-            let newProduct = document.createElement('div');
-            newProduct.classList.add('cart-item');
-            newProduct.innerHTML = `
-                <div class="cart-item-img">
-                    <img src="${product.image}  " alt="">
-                </div>
-                <div class="cart-item-name">
-                    Brow Pen Bean Yo mama
-                </div>
-                <div class="total-price">
-                    $300
-                </div>
-                <div class="quantity">
-                    <span class="minus">&lt;</span>
-                    <span>1</span>
-                    <span class="plus">&gt;</span>
-                </div>
-            `;
-            listProductsHTML.appendChild(newProduct);
-          })
-      }
-    }
+    // const addDatatoHTML = () => {
+    //   listProductsHTML.innerHTML = ' ';
+    //   if(listProducts.length > 0) {
+    //       listProducts.forEach (product => {
+    //         let newProduct = document.createElement('div');
+    //         newProduct.classList.add('cart-item');
+    //         newProduct.innerHTML = `
+    //             <div class="cart-item-img">
+    //                 <img src="${"img/browpen-main.webp"}  " alt="">
+    //             </div>
+    //             <div class="cart-item-name">
+    //                 Brow Pen Bean Yo mama
+    //             </div>
+    //             <div class="total-price">
+    //                 $300
+    //             </div>
+    //             <div class="quantity">
+    //                 <span class="minus">&lt;</span>
+    //                 <span>1</span>
+    //                 <span class="plus">&gt;</span>
+    //             </div>
+    //         `;
+    //         listProductsHTML.appendChild(newProduct);
+    //       })
+    //   }
+    // }
 
-    const initApp = () => {
-      //Get data from json file
-      fetch('products.json')
-      .then(response => response.json())
-      .then(data => {
-          listProducts = data;
-          addDatatoHTML();
-      })
-    }
+    // const initApp = () => {
+    //   //Get data from json file
+    //   fetch('products.json')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //       listProducts = data;
+    //       addDatatoHTML();
+    //   })
+    // }
 
-    initApp();
+    // initApp();
 });
 
 
