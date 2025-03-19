@@ -212,6 +212,7 @@ main {
     right: 12%;
 }
 
+
 /* 🔹 MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
     .navbar {
@@ -245,8 +246,8 @@ main {
     color: #000000;
     position: fixed;
     top: 0;
-    right: -55vh; 
-    width: 50vh;
+    right: -57vh; 
+    width: 57vh;
     height: 100vh;
     z-index: 1001;
     transition: inset .5s ease-in-out;
@@ -310,6 +311,11 @@ body.show-cart main {
     object-fit: cover;
 }
 
+.cart-item-name {
+    text-align: left;
+    font-size: 1.9vh;
+}
+
 .quantity span {
     display: inline-block;
     width: 2.5vh;
@@ -323,8 +329,13 @@ body.show-cart main {
     background-color: transparent;
 }
 
-quatity span:hover {
+.quantity span:hover     {
     background-color: #a5a0a0;
+}
+
+.empty-cart-message {
+    padding: 2vh;
+    margin: 2vh;
 }
 
 /* Body Part */
@@ -380,7 +391,7 @@ quatity span:hover {
 footer {
     display: block;
     border-top: .2vh solid #c6c3c3;
-    padding: 3vh 14vh;
+    padding: 2vh 11vw 3vh 11vw;
     height: 20%;
 }
 
@@ -440,6 +451,7 @@ footer {
 }
 
 .log-in-form-container {
+    display: grid;
     justify-content: center;
     justify-items: center;
     align-content: center;
@@ -517,6 +529,7 @@ footer {
 }
 
 .sign-up-form-container {
+    display: grid;
     justify-items: center;
     align-content: center;
     align-items: center;
@@ -659,6 +672,7 @@ footer {
 .products-card-container {
     display: grid;
     padding: 0vh 20vh; 
+    margin-bottom: 5vh;
     grid-template-columns: repeat(4, minmax(14vh, 1fr));
     grid-template-rows: repeat(3, minmax(15vh, 1fr));
     gap: 2vh;
@@ -733,7 +747,7 @@ footer {
 }
 
 .product-details-container {
-    padding: 3vh 30vh; 
+    padding: 4vh 30vh; 
     display: flex;
     justify-content: space-between;
 }
@@ -830,11 +844,11 @@ footer {
 }
 
 .shades-container h4 {
-    
     margin: 1vh 0vh;
 }
 
 .shade-btn {
+    margin-right: .5vh;  
     font-size: 1.6vh;
     padding: 1vh;
     cursor:pointer ;
@@ -870,7 +884,7 @@ footer {
     border: 0;
     background-color: rgb(216, 177, 177);
     margin-top: 1vh;
-    width: 89.3%;
+    width: 89%;
 }
 
 .add-to-cart button:hover {
@@ -899,7 +913,7 @@ footer {
     font-size: 2vh;
     cursor: pointer;
     padding: 1vh 1vh;
-    width: 13%;
+    width: 20%;
 }
 
 .add-review-btn:hover {
