@@ -53,9 +53,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 slider.appendChild(img);
             });
 
-            // =============================
-            // 🎨 Shades Section
-            // =============================
+
+            // Shades Section
             const shadeContainer = document.querySelector(".shades-container");
             if (product.shades && product.shades.length > 0) {
                 shadeContainer.innerHTML = "<h4>Shades</h4>";
@@ -78,9 +77,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                 shadeContainer.style.display = "none";
             }
 
-            // =============================
-            // 🛒 Add to Cart Button - Fixed
-            // =============================
+          
+            //  Add to Cart Button
             const addToCartBtn = document.querySelector(".add-to-cart-btn");
             addToCartBtn.replaceWith(addToCartBtn.cloneNode(true));
 
@@ -107,9 +105,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     renderCartItems(); // Show items when the cart is loaded
 });
 
-// =============================
-// ✅ Add to Cart Functionality
-// =============================
+// Add to Cart Functionality
 function addToCart(product, selectedShade, quantity) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -141,18 +137,16 @@ function addToCart(product, selectedShade, quantity) {
     renderCartItems(); // Update cart immediately
 }
 
-// =============================
-// 🎯 Update Cart Counter
-// =============================
+
+// Update Cart Counter
 function updateCartCounter(counter) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     counter.innerText = totalItems;
 }
 
-// =============================
-// 🛒 Render Cart Items
-// =============================
+
+// Render Cart Items
 function renderCartItems() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartList = document.querySelector(".cart-list");
@@ -193,9 +187,8 @@ function renderCartItems() {
     attachCartListeners(); // Attach listeners for + and - buttons
 }
 
-// =============================
-// ➕➖ Handle Cart Quantity Updates
-// =============================
+
+// Handle Cart Quantity Updates
 function attachCartListeners() {
     document.querySelectorAll(".minus").forEach((btn) => {
         btn.addEventListener("click", (e) => {
@@ -212,9 +205,7 @@ function attachCartListeners() {
     });
 }
 
-// =============================
-// 🔄 Update Quantity in Cart
-// =============================
+// Update Quantity in Cart
 function updateQuantity(index, change) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart[index]) {
@@ -228,9 +219,7 @@ function updateQuantity(index, change) {
     renderCartItems(); // Refresh cart items
 }
 
-// =============================
-// 🎭 Open/Close Cart Tab
-// =============================
+// Open/Close Cart Tab
 document.querySelector(".cart-icon").addEventListener("click", () => {
     document.body.classList.add("show-cart");
     renderCartItems();

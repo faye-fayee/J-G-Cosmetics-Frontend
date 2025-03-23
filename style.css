@@ -607,7 +607,8 @@ footer {
 }
 
 .left-products-nav {
-    display: flex;
+    display: none;
+    /* display: flex; */
     align-items: center;
     margin-left: 1.824vh;
 }
@@ -896,6 +897,7 @@ footer {
 }
 
 .product-reviews {
+    display: none;
     margin: 0vh 30vh; 
     /* border: 1px solid #202020; */
 }

@@ -1,19 +1,59 @@
-// Price Dropdown Functionality
-function myDropdownPrice() {
-    document.getElementById("myPriceDropdown").classList.toggle("show");
-}
+// Toggle Price Dropdown Visibility
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdownBtn = document.querySelector(".price-dropdown-btn");
+    const dropdownMenu = document.getElementById("myPriceDropdown");
+    const productContainer = document.querySelector(".products-card-container");
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-    if (!event.target.matches('.price-dropdown-btn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-price-list");
-        for (let dropdown of dropdowns) {
-            if (dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
-            }
+    // Toggle Dropdown
+    dropdownBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevents immediate closing
+        dropdownMenu.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener("click", function (event) {
+        if (!event.target.closest(".dropdown-price")) {
+            dropdownMenu.classList.remove("show");
         }
+    });
+
+    // Sort Products Function
+    function sortProducts(order) {
+        let products = Array.from(document.querySelectorAll(".products-card")); // Get fresh product list
+
+        products.sort((a, b) => {
+            let priceAElement = a.querySelector("ul li:nth-child(2) p");
+            let priceBElement = b.querySelector("ul li:nth-child(2) p");
+
+            if (!priceAElement || !priceBElement) {
+                console.error("Price element not found!");
+                return 0; // Skip sorting if price is missing
+            }
+
+            let priceA = parseInt(priceAElement.textContent.replace(/[^0-9]/g, "")) || 0;
+            let priceB = parseInt(priceBElement.textContent.replace(/[^0-9]/g, "")) || 0;
+
+            return order === "asc" ? priceA - priceB : priceB - priceA;
+        });
+
+        // Re-append sorted products to container
+        productContainer.innerHTML = "";
+        products.forEach(product => productContainer.appendChild(product));
     }
-};
+
+    // Handle Click on Sorting Options
+    document.querySelectorAll("#myPriceDropdown a").forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            let order = this.textContent.includes("Lowest") ? "asc" : "desc";
+            sortProducts(order);
+
+            // Close dropdown after selection
+            dropdownMenu.classList.remove("show");
+        });
+    });
+});
+
 
 // Dynamic Creation of Product Details Page from JSON
 document.addEventListener("DOMContentLoaded", function () {
@@ -64,10 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Hide dropdown if no shades available
                     document.querySelector(".price-dropdown-btn").style.display = "none";
                 }
-            } else {
-                // If product not found
-                document.getElementById("product-details").innerHTML = `<p>Product not found.</p>`;
-            }
+                } else {
+                    // If product not found
+                    document.getElementById("product-details").innerHTML = `<p>Product not found.</p>`;
+                    
+                }
         })
         .catch(error => {
             console.error("Error loading product data:", error);
