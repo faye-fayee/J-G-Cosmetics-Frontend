@@ -61,7 +61,7 @@
 
                         <a class="shopping-cart-container" href="">
                             <span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span>
-                            <span>0</span>
+                            <span class="cart-counter">0</span>
                         </a>
                         
                     </div>
@@ -70,38 +70,21 @@
             
             <div class="product-details-container">
                 <div class="product-img-container">
-                    <img id="featured" class="featured-img" src="img/browpen/browpen-main.webp" alt="">
+                    <img id="featured" class="featured-img" alt="">
                     <div id="slide-wrapper">
                         <div id="slider">
-                            <img class="thumbnail active" src="img/browpen/browpen-main.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/BrowPenPro-Swatch.jpg.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/bss.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/ash.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/coffee.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/taupe.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/peanut.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/bean.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/marble.webp" alt="">
-                            <img class="thumbnail" src="img/browpen/bsss.webp" alt="">
+                            <img class="thumbnail active" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
+                            <img class="thumbnail" alt="">
                         </div>
                     </div>
-
-                    <script>
-                        let thumbnails = document.getElementsByClassName('thumbnail');
-                        let activeImages = document.getElementsByClassName('active');
-
-                        for (var i = 0; i < thumbnails.length; i++) {
-                            thumbnails[i].addEventListener('mouseover', function(){
-                            if (activeImages.length > 0) {
-                                activeImages[0].classList.remove('active');
-                            }    
-
-                            this.classList.add('active');
-                            document.getElementById('featured').src = this.src;
-                            })     
-                        }
-                                
-                    </script>
                         
                 </div>
 
@@ -121,7 +104,7 @@
                     </div>
                     <div class="add-to-cart">
                         <input type="number" value="1" min="1" max="10">
-                        <button>ADD TO CART</button>
+                        <button class="add-to-cart-btn">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -211,25 +194,10 @@
     <div class="cart-tab">
         <h1>Shopping Cart</h1>
         <div class="cart-list">
-            <div class="cart-item">
-                <div class="cart-item-img">
-                    <img src="img/browpen/bean.webp" alt="">
-                </div>
-                <div class="cart-item-name">
-                    NAME
-                </div>
-                <div class="total-price">
-                    $300
-                </div>
-                <div class="quantity">
-                    <span class="minus">&lt;</span>
-                    <span>1</span>
-                    <span class="plus">&gt;</span>
-                </div>
-            </div>
+            <div class="cart-item"></div>
         </div>
         <div class="cart-btn">
-            <button class="close-cart-btn">CLOSE</button>
+            <button class="close-cart-btn">CLOSE</button>   
             <button class="checkout-btn">CHECKOUT</button>
         </div>
     </div>

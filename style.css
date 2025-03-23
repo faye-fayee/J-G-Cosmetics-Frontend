@@ -685,7 +685,7 @@ footer {
 
 .products-card img{
     width: 75%;
-    height: 60%;
+    height: 70%;
     align-content: center;
     object-fit: cover;
     padding-top: 3vh;
@@ -701,7 +701,7 @@ footer {
     list-style: none;
 }
 
-.products-card button {
+/* .products-card button {
     font-size: 2vh;
     font-weight: 450;
     margin-top: 2vh;
@@ -715,7 +715,7 @@ footer {
 
 .products-card button:hover {
     background-color: rgb(224, 166, 166);
-}
+} */
 
 
 .products-card li:first-child {
@@ -738,6 +738,7 @@ footer {
 .products-card li:nth-child(3) {
     font-size: 1.5vh;
 }
+
 
 .products-card li:nth-child(3) a {
     text-decoration: underline;
@@ -860,9 +861,12 @@ footer {
     background-color: rgb(203, 199, 199);
 }
 
-.shade-btn:focus {
-    background-color: rgb(203, 199, 199);
+.shade-btn.selected {
+    background-color: #e0c1c1; /* Light shade to indicate selection */
+    border: 1px solid #a57373;
+    color: #000;
 }
+
 
 .add-to-cart {
     margin-top: 2vh;
