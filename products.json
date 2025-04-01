@@ -66,6 +66,77 @@
             "img/brushset/brushset1.webp"
         ],
         "shades": []
-
+    },
+    {
+        "name": "Lip Speak",
+        "price": 349.0,
+        "category": "Lips",
+        "tagline": "Power in Every Swipe",
+        "description": "For a luxurious matte lipstick under J&G Cosmetics, you’ll need ingredients that provide a velvety, long-lasting, non-drying finish while keeping lips comfortable.",
+        "images": "[\"img/lipspeak/lipspeak-main.webp\", \"img/lipspeak/lipspeak-shades.png\", \"img/lipspeak/lipspeak-rose-royale.png\", \"img/lipspeak/duchess-bloom.png\", \"img/lipspeak/blush-affair.png\", \"img/lipspeak/almond-elan.png\", \"img/lipspeak/champagne-silk.png\", \"img/lipspeak/cognac-chic.png\", \"img/lipspeak/gilded-ember.png\", \"img/lipspeak/berry-bijou.png\", \"img/lipspeak/ruby-reverie.png\", \"img/lipspeak/cherry-couture.png\"]",
+        "shades": "[\"Rose Royale\", \"Duchess Bloom\", \"Blush Affair\", \"Almond Élan\", \"Champagne Silk\", \"Gilded Ember\", \"Berry Bijou\", \"Ruby Reverie\", \"Cherry Couture\"]"
+    },
+    {
+        "name": "Lip Contour",
+        "price": 249.0,
+        "category": "Lips",
+        "tagline": "Lips that Command Attention",
+        "description": "Define and enhance your lips effortlessly with our Lip Contour collection, featuring a luxurious range of shades that sculpt, define, and add depth. Whether you're aiming for a soft, natural look or a bold, statement pout, these shades deliver flawless precision and lasting color. Perfect for everyday wear or special occasions, our formula glides on smoothly, ensuring a comfortable, velvety finish.",
+        "images": "[\"img/lipcontour/lipcontour-main.png\", \"img/lipcontour/lipcontour-shades.png\", \"img/lipcontour/ESPRESSO CHIC.png\", \"img/lipcontour/FROSTED NUDE.png\", \"img/lipcontour/FUDGE KISS.png\", \"img/lipcontour/MAUVE MUSE.png\", \"img/lipcontour/MOCHA DATE.png\",\"img/lipcontour/ROSETTE.png\", \"img/lipcontour/SIENNA KISS.png\", \"img/lipcontour.SMOKY COCOA.png\", \"img/lipcontour/SOFT MOCHA.png\", \"img/lipcontour/SUNSET ROSE.png\",\"img/lipcontour/TIMELESS RED.png\", \"img/lipcontour/VELVET MAUVE.png\", \"img/lipcontour/VINTAGE ROSE.png\", \"im/lipcontour/WINE NOIR.png\"]",
+        "shades": "[\"Espresso Chic\", \"Frosted Nude\", \"Fudge Kiss\", \"Mauve Muse\", \"Mocha Date\", \"Rosette\", \"Sienna Kiss\", \"Smoky Cocoa\", \"Soft Mocha\", \"Sunset Rose\", \"Timeless Red\", \"Velvet Mauve\", \"Vintage Rose\", \"Wine Noir\"]"
+    },
+    {
+        "name": "Gloss Tint Gel",
+        "price": 299.0,
+        "category": "Lips",
+        "tagline": "Unfiltered Lips",
+        "description": "Achieve the perfect balance of high-shine gloss and rich tint with J&G Cosmetics' Gloss Tint Gel collection. This lightweight, non-sticky formula glides on effortlessly, leaving your lips with a luscious, dewy finish and a pop of vibrant color. Whether you're aiming for a subtle, everyday glow or a bold, radiant statement, these shades provide long-lasting shine and hydration.",
+        "images": "[\"img/glosstint/glossgeltint-main.png\", \"img/glosstint/glosstint-shades.png\", \"img/losstint/glosstint-claims.png\", \"img/glosstint/AMBER DUSK.png\", \"img/glosstint/BAREFOOT.png\", \"img/glosstint/BERRY CRUSH.png\", \"img/glosstint/BLUSH HOUR.png\", \"img/glosstint/CHEERY RUSH.png\", \"img/glosstint/COSMOS.png\", \"img/glosstint/CRIMSOM GLOW.png\", \"img/glosstint/MALIBU HEAT.png\", \"img/glosstint/Rosé All Day.png\", \"img/glosstint/SUN-KISSED.png\"]",
+        "shades": "[\"Amber Dusk\", \"Barefoot\", \"Berry Crush\", \"Blush Hour\",\"Cherry Rush\", \"Cosmos\", \"Crimson Glow\", \"Malibu Heat\", \"Rosé All Day\", \"Sun-kissed\"]"
+    },
+    {
+        "name": "Eyeshadow Pallete",
+        "price": 1499.0,
+        "category": "Eyes",
+        "tagline": "Bold Hues, Limitless Looks",
+        "description": "From natural elegance to bold glamour, J&G Cosmetics' 32-Shade Luxe Eyeshadow Palette is your go-to for every makeup masterpiece.\n \nUnleash your creativity with the J&G Cosmetics 32-Shade Luxe Eyeshadow Palette —a must-have collection of richly pigmented shades designed for every occasion. Encased in sleek black and gold packaging. This palette exudes elegance and luxury, making it a statement piece in any makeup collection.",
+        "images": "[\"img/eyeshadow/pallete2.webp\"]",
+        "shades": "[]"
+    },
+    {
+        "name": "Soft Blur Powder Blush",
+        "price": 349.0,
+        "category": "Cheeks",
+        "tagline": "Bloom with Every Touch",
+        "description": "Color that speaks, beauty that stays—J&G Blush Collection, where bold meets effortless luxury",
+        "images": "[\"img/blushes/blushes-main.png\", \"img/blushes/blushes-shades.png\", \"img/blushes/BERRY BLUSH.png\", \"img/blushes/COTTON CANDY.png\", \"img/blushes/MOCHA GLOW.png\", \"img/blushes/PINK POP.png\", \"img/blushes/ROSE KISS.png\", \"img/blushes/SUGAR PLUM.png\", \"img/blushes/TOFFEE SWIRL.png\", \"img/blushes/VELVET PETAL.png\"]",
+        "shades": "[\"Berry Blush\", \"Cotton Candy\", \"Mocha Glow\", \"Pink Pop\", \"Rose Kiss\", \"Sugar Plum\", \"Toffee Swirl\", \"Velvet Petal\"]"
+    },
+    {
+        "name": "Dewy Glow Blush",
+        "price": 189.0,
+        "category": "Cheeks",
+        "tagline": "A Flush of Color, A Touch of Dew",
+        "description": "A silky, blendable blush that delivers a radiant, lit-from-within glow. Infused with skin-loving ingredients, this lightweight formula melts seamlessly into the skin, adding a natural flush of color with a dewy, luminous finish. Buildable and long-wearing, it enhances your complexion with a fresh, youthful glow that lasts all day.",
+        "images": "[\"img/dewyblush/dewyblush-main.png\", \"img/dewyblush/dewyblush-shades.png\", \"img/dewyblush/ADORABLE.png\", \"img/dewyblush/BOLD.png\", \"img/dewyblush/CHARMING.png\", \"img/dewyblush/ENCHANTING.png\", \"img/dewyblush/FLUSHED.png\", \"img/dewyblush/GLOWING.png\", \"img/dewyblush/GRACEFUL.png\", \"img/dewyblush/PLAYFUL.png\", \"img/dewyblush/POISED.png\", \"img/dewyblush/SUNLIT.png\", \"\"]",
+        "shades": "[\"Adorable\", \"Bold\", \"Charming\", \"Enchanting\", \"Flushed\", \"Glowing\", \"Graceful\", \"Playful\", \"Poised\", \"Sunlit\"]"
+    },
+    {
+        "name": "Creamy Multistick Blush",
+        "price": 349.0,
+        "category": "Cheeks",
+        "tagline": "One Swipe, Instant Glow",
+        "description": "This ultra-creamy, multi-use stick delivers a natural, radiant flush to your cheeks, lips, and eyes. The lightweight, blendable formula melts into the skin for a seamless, second-skin finish. Buildable and versatile, it’s your go-to for effortless beauty on the go.",
+        "images": "[\"img/multistick/multistick-main.png\", \"img/multistick/multistick-shades.png\", \"img/multistick/DAWNISH.png\", \"img/multistick/FLUTTER.png\", \"img/multistick/PEONY.png\", \"img/multistick/ROSETTE.png\", \"img/multistick/SUNFLECK.png\", \"img/multistick/SUNKISSED.png\"]",
+        "shades": "[\"Dawnish\", \"Flutter\", \"Peony\", \"Rosette\", \"Sunfleck\", \"Sunkissed\"]"
+    },
+    {
+        "name": "Mirror",
+        "price": 1299.0,
+        "category": "Tools",
+        "tagline": "Reflect you Power",
+        "description": "A sleek, modern essential designed for flawless beauty moments. This ultra-clear, high-definition mirror provides perfect visibility for precise makeup application, whether at home or on the go. Crafted with a slim, lightweight design and a durable finish, it's the perfect blend of elegance and functionality.\n \nElevate your beauty routine with a mirror as bold and refined as you.",
+        "images": "[\"img/mirror/mirror1.webp\"]",
+        "shades": "[]"
     }
 ]
