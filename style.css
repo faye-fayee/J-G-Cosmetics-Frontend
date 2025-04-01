@@ -340,7 +340,7 @@ body.show-cart main {
 
 /* Body Part */
 .hero {
-    background-image:url(img/Home.png);
+    background-image:url(img/hero/blur.png);
     background-position-y: 100%;
     background-size: 100%;
     background-repeat: no-repeat;
