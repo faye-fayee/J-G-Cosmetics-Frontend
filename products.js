@@ -16,42 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             dropdownMenu.classList.remove("show");
         }
     });
-
-    // Sort Products Function
-    function sortProducts(order) {
-        let products = Array.from(document.querySelectorAll(".products-card")); // Get fresh product list
-
-        products.sort((a, b) => {
-            let priceAElement = a.querySelector("ul li:nth-child(2) p");
-            let priceBElement = b.querySelector("ul li:nth-child(2) p");
-
-            if (!priceAElement || !priceBElement) {
-                console.error("Price element not found!");
-                return 0; // Skip sorting if price is missing
-            }
-
-            let priceA = parseInt(priceAElement.textContent.replace(/[^0-9]/g, "")) || 0;
-            let priceB = parseInt(priceBElement.textContent.replace(/[^0-9]/g, "")) || 0;
-
-            return order === "asc" ? priceA - priceB : priceB - priceA;
-        });
-
-        // Re-append sorted products to container
-        productContainer.innerHTML = "";
-        products.forEach(product => productContainer.appendChild(product));
-    }
-
-    // Handle Click on Sorting Options
-    document.querySelectorAll("#myPriceDropdown a").forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
-            let order = this.textContent.includes("Lowest") ? "asc" : "desc";
-            sortProducts(order);
-
-            // Close dropdown after selection
-            dropdownMenu.classList.remove("show");
-        });
-    });
 });
 
 

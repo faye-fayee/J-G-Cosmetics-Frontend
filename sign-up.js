@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('sign_up_form');   // Store the input element
-    const fNameInput = document.getElementById('fname');    // Store the input element
-    const lNameInput = document.getElementById('lname');    // Store the input element
+    const NameInput = document.getElementById('name');    // Store the input element
+    // const lNameInput = document.getElementById('lname');    // Store the input element
     const uNameInput = document.getElementById('uname');    // Store the input element
     const passwordInput = document.getElementById('psw');   // Store the input element
 
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Functions to validate the inputs
-    function validateFName(first_name) {
-        return /^[A-Za-z]+$/.test(first_name); // Makes sure it only contains letters
+    function validateFName(name) {
+        return /^[A-Za-z]+$/.test(name); // Makes sure it only contains letters
     }
 
-    function validateLName(last_name) {
-        return /^[A-Za-z]+$/.test(last_name); // Makes sure it only contains letters
-    }
+    // function validateLName(last_name) {
+    //     return /^[A-Za-z]+$/.test(last_name); // Makes sure it only contains letters
+    // }
 
     function validateUName(username) {
         return /^[A-Za-z0-9]+$/.test(username); // Makes sure it only contains letters and numbers
@@ -35,21 +35,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Event Listeners for the input fields
-    fNameInput.addEventListener("input", function() {
-        if (!validateFName(fNameInput.value)) {
-            showMessage(fNameInput, 'First name must contain only letters');
+    NameInput.addEventListener("input", function() {
+        if (!validateFName(NameInput.value)) {
+            showMessage(NameInput, 'Name must contain only letters');
         } else {
-            clearMessage(fNameInput);
+            clearMessage(NameInput);
         }
     });
 
-    lNameInput.addEventListener("input", function() {
-        if (!validateLName(lNameInput.value)) {
-            showMessage(lNameInput, 'Last name must contain only letters');
-        } else {
-            clearMessage(lNameInput);
-        }
-    });
+    // lNameInput.addEventListener("input", function() {
+    //     if (!validateLName(lNameInput.value)) {
+    //         showMessage(lNameInput, 'Last name must contain only letters');
+    //     } else {
+    //         clearMessage(lNameInput);
+    //     }
+    // });
 
     uNameInput.addEventListener("input", function() {
         if (!validateUName(uNameInput.value)) {
@@ -71,24 +71,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event Listener for the submit form
     form.addEventListener('submit', function(event) {
 
-        if (fNameInput.value === '') {
-            alert('First name must be filled out');
+        if (NameInput.value === '') {
+            alert('Name must be filled out');
             event.preventDefault();
-        } else if (lNameInput.value === '') {
-            alert('Last name must be filled out');
-            event.preventDefault();
+        // } else if (lNameInput.value === '') {
+        //     alert('Last name must be filled out');
+        //     event.preventDefault();
         } else if (uNameInput.value === '') {
             alert('Username must be filled out');
             event.preventDefault();
         } else if (passwordInput.value === '') {
             alert('Password must be filled out');
             event.preventDefault();
-        } else if (!validateFName(fNameInput.value)) {
-            alert('First name must contain only letters');
+        } else if (!validateFName(NameInput.value)) {
+            alert('Name must contain only letters');
             event.preventDefault();
-        } else if (!validateLName(lNameInput.value)) {
-            alert('Last name must contain only letters');
-            event.preventDefault();
+        // } else if (!validateLName(lNameInput.value)) {
+        //     alert('Last name must contain only letters');
+        //     event.preventDefault();
         } else if (!validateUName(uNameInput.value)) { 
             alert('Username must contain only letters and numbers');
             event.preventDefault();

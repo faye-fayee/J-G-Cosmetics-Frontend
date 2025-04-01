@@ -607,8 +607,8 @@ footer {
 }
 
 .left-products-nav {
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     align-items: center;
     margin-left: 1.824vh;
 }
@@ -624,7 +624,7 @@ footer {
     border: 0;
     background-color: white;
     font-weight: bold;
-    font-size: 1.8vh;
+    font-size: 2vh;
     cursor: pointer;
 }
 
@@ -637,12 +637,12 @@ footer {
 }
 
 .dropdown-price-list {
+    margin-left: 1vw;
     display: none;
     position: absolute;
     z-index: 1;
     background-color: #ffffff;
-    max-width: max-content;
-    width: inherit;
+    width: 7vw;
     border: .1vh solid #c4c4c4;
     margin-top: 2.1vh;
 }
@@ -657,7 +657,7 @@ footer {
     font-size: 2vh;
     color: #000000;
     padding: 2vh 5vh 2vh 2vh;
-    width: max-content;
+    
 }
 
 .dropdown-price-list a:hover {
