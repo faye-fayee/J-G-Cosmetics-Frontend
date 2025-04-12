@@ -865,7 +865,6 @@ footer {
 
 .shade-btn.selected {
     background-color: #e0c1c1; /* Light shade to indicate selection */
-    border: 1px solid #a57373;
     color: #000;
 }
 

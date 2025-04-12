@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             addToCartBtn.replaceWith(addToCartBtn.cloneNode(true));
 
             document.querySelector(".add-to-cart-btn").addEventListener("click", function () {
-                const selectedShade = document.querySelector(".shade-img.selected")?.src;
+                const selectedShade = document.querySelector(".shade-btn.selected")?.innerText;
 
                 if (!selectedShade) {
                     alert("Please select a shade before adding to cart! 🎨");
@@ -111,6 +111,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 const quantity = parseInt(document.querySelector(".add-to-cart input").value);
                 addToCart(product, selectedShade, quantity);
+                // Log cart to check if items are still stored in localStorage
+                console.log(JSON.parse(localStorage.getItem('cart')));
+
             });
         } else {
             document.querySelector(".product-details-container").innerHTML = "<h2>Product not found.</h2>";
@@ -123,14 +126,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     updateCartCounter(document.querySelector(".cart-counter"));
     renderCartItems(); // Show items when the cart is loaded
 });
-
-
-// Fetch backend product data
-// fetch('http://localhost:8080/api/products')
-//   .then(res => res.json())
-//   .then(data => {
-//     console.log('Products:', data);
-//   });
-
-
-
