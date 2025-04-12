@@ -106,5 +106,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 
+// Fetch backend product data
+fetch('http://localhost:8080/api/products')
+  .then(res => res.json())
+  .then(data => {
+    console.log('Products:', data);
+  });
+
 
 
