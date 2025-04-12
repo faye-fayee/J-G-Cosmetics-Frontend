@@ -851,6 +851,7 @@ footer {
 
 .shade-btn {
     margin-right: .5vh;  
+    margin-bottom: .7vh;
     font-size: 1.6vh;
     padding: 1vh;
     cursor:pointer ;

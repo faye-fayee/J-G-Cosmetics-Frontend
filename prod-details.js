@@ -25,45 +25,65 @@ document.addEventListener("DOMContentLoaded", async function () {
     const productId = urlParams.get("id");
 
     try {
-        const response = await fetch("products.json");
-        const products = await response.json();
-        const product = products.find((p) => p.id == productId);
+        // Fetch product data from backend
+        const response = await fetch(`http://localhost:8080/api/products/${productId}`);
+        const product = await response.json();
+
+        console.log(product); // Log the product data to verify the structure
+        console.log("Parsed Shades:", product.shades);
+
+
+        product.images = JSON.parse(product.images);
+        product.shades = JSON.parse(product.shades);
+
 
         if (product) {
+            // Set title and description
             document.querySelector(".product-title").innerText = product.name;
             document.querySelector(".product-price").innerText = `₱${product.price}`;
             document.querySelector(".product-tagline").innerText = product.tagline;
             document.querySelector(".product-description").innerText = product.description;
 
+            // Set featured image
             const featuredImg = document.getElementById("featured");
-            featuredImg.src = product.images[0];
+            if (product.images && product.images.length > 0) {
+                featuredImg.src = product.images[0];
+            }
 
+            // Image slider (only if images are present)
             const slider = document.getElementById("slider");
-            slider.innerHTML = "";
-            product.images.forEach((imgSrc, index) => {
-                const img = document.createElement("img");
-                img.src = imgSrc;
-                img.classList.add("thumbnail");
-                if (index === 0) img.classList.add("active");
-                img.addEventListener("mouseover", function () {
-                    featuredImg.src = imgSrc;
-                    document.querySelector(".thumbnail.active")?.classList.remove("active");
-                    img.classList.add("active");
+            slider.innerHTML = "";  // Clear previous images if any
+            if (product.images && product.images.length > 0) {
+                product.images.forEach((imgSrc, index) => {
+                    const img = document.createElement("img");
+                    img.src = imgSrc;  // Using the image path from the database
+                    img.alt = `Image ${index + 1}`;
+                    img.classList.add("thumbnail");
+                    if (index === 0) img.classList.add("active"); // Set the first image as active
+
+                    // Change the featured image on hover
+                    img.addEventListener("mouseover", function () {
+                        featuredImg.src = imgSrc;
+                        document.querySelector(".thumbnail.active")?.classList.remove("active");
+                        img.classList.add("active");
+                    });
+
+                    slider.appendChild(img);
                 });
-                slider.appendChild(img);
-            });
+            } else {
+                console.log("No images found for this product.");
+            }
 
-
-            // Shades Section
+            // Render shades if available
             const shadeContainer = document.querySelector(".shades-container");
-            if (product.shades && product.shades.length > 0) {
+            if (product.shades.length > 0) {
                 shadeContainer.innerHTML = "<h4>Shades</h4>";
                 product.shades.forEach((shade) => {
                     const button = document.createElement("button");
                     button.innerText = shade;
                     button.classList.add("shade-btn");
 
-                    // Shade button click event
+                    // Shade button click
                     button.addEventListener("click", (event) => {
                         document.querySelectorAll(".shade-btn").forEach((btn) => btn.classList.remove("selected"));
                         event.target.classList.add("selected");
@@ -77,13 +97,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                 shadeContainer.style.display = "none";
             }
 
-          
             //  Add to Cart Button
             const addToCartBtn = document.querySelector(".add-to-cart-btn");
             addToCartBtn.replaceWith(addToCartBtn.cloneNode(true));
 
             document.querySelector(".add-to-cart-btn").addEventListener("click", function () {
-                const selectedShade = document.querySelector(".shade-btn.selected")?.innerText;
+                const selectedShade = document.querySelector(".shade-img.selected")?.src;
 
                 if (!selectedShade) {
                     alert("Please select a shade before adding to cart! 🎨");
@@ -107,11 +126,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
 // Fetch backend product data
-fetch('http://localhost:8080/api/products')
-  .then(res => res.json())
-  .then(data => {
-    console.log('Products:', data);
-  });
+// fetch('http://localhost:8080/api/products')
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log('Products:', data);
+//   });
 
 
 
