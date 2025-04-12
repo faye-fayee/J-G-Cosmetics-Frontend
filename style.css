@@ -598,6 +598,13 @@ footer {
     text-align: center;
 }
 
+
+/* Products Page */
+.account-details-container{
+    padding: 0vh 23vh; 
+}
+
+
 .products-nav {
     display: flex;
     flex:auto;
@@ -940,3 +947,4 @@ footer {
     margin: 0vh;
     padding-bottom: 2vh;
 }
+
