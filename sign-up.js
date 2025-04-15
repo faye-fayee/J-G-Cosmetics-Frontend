@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event Listener for the submit form
     form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted!'); // Log to the console for debugging
 
         if (NameInput.value === '') {
             alert('Name must be filled out');
@@ -80,16 +82,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // If all validations pass, the form will be submitted
-        fetch('users/register', {
+        fetch('http://localhost:8080/api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({NameInput, uNameInput, passwordInput})
+            body: JSON.stringify({
+                name: NameInput.value, 
+                username: uNameInput.value, 
+                password: passwordInput.value
+            })
         })
-        .then(response = response.json())
-        .then(date => {
-            alert('User registered successfully!');
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            alert(data.message);
             window.location.href = 'login.html'; // Redirect to login page after successful registration
         })
         .catch(error => {
