@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('sign_up_form');   // Store the input element
     const NameInput = document.getElementById('name');    // Store the input element
-    // const lNameInput = document.getElementById('lname');    // Store the input element
     const uNameInput = document.getElementById('uname');    // Store the input element
     const passwordInput = document.getElementById('psw');   // Store the input element
 
@@ -22,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return /^[A-Za-z]+$/.test(name); // Makes sure it only contains letters
     }
 
-    // function validateLName(last_name) {
-    //     return /^[A-Za-z]+$/.test(last_name); // Makes sure it only contains letters
-    // }
-
     function validateUName(username) {
         return /^[A-Za-z0-9]+$/.test(username); // Makes sure it only contains letters and numbers
     }
@@ -43,13 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // lNameInput.addEventListener("input", function() {
-    //     if (!validateLName(lNameInput.value)) {
-    //         showMessage(lNameInput, 'Last name must contain only letters');
-    //     } else {
-    //         clearMessage(lNameInput);
-    //     }
-    // });
 
     uNameInput.addEventListener("input", function() {
         if (!validateUName(uNameInput.value)) {
@@ -74,9 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (NameInput.value === '') {
             alert('Name must be filled out');
             event.preventDefault();
-        // } else if (lNameInput.value === '') {
-        //     alert('Last name must be filled out');
-        //     event.preventDefault();
         } else if (uNameInput.value === '') {
             alert('Username must be filled out');
             event.preventDefault();
@@ -86,9 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (!validateFName(NameInput.value)) {
             alert('Name must contain only letters');
             event.preventDefault();
-        // } else if (!validateLName(lNameInput.value)) {
-        //     alert('Last name must contain only letters');
-        //     event.preventDefault();
         } else if (!validateUName(uNameInput.value)) { 
             alert('Username must contain only letters and numbers');
             event.preventDefault();
@@ -96,5 +78,23 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Password must be at least 6 characters long');
             event.preventDefault();
         }
+
+        // If all validations pass, the form will be submitted
+        fetch('users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({NameInput, uNameInput, passwordInput})
+        })
+        .then(response = response.json())
+        .then(date => {
+            alert('User registered successfully!');
+            window.location.href = 'login.html'; // Redirect to login page after successful registration
+        })
+        .catch(error => {
+            alert('Error registering user!');
+            console.error('Error:', error); // Log the error to the console for debugging
+        });
     });
 });

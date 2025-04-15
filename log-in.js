@@ -59,21 +59,32 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Password must be at least 6 characters long');
             event.preventDefault();
         }
+
+        // If all validations pass, the form will be submitted
+        fetch('users/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: uNameInput.value,
+                password: passwordInput.value
+            })
+        })
+        .then(response =>response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Login successful!');
+                window.location.href = 'acc-details.html'; // Redirect to home page
+            }
+            else {
+                alert('Login failed. Please check your username and password.');
+            }
+        })
+        .catch(error => {
+            alert('An error occurred. Please try again later.');
+            console.error(error);
+        });
     });
 
-    // function submitForm() {
-    //     if (uNameInput.value === "") {
-    //         alert('Username and password must not be empty');
-    //         event.preventDefault();
-    //     } else if (passwordInput.value === "") {    
-    //         alert('Username and password must not be empty');
-    //         event.preventDefault();
-    //     } else if (!validateUName(uNameInput.value)) {
-    //         alert('Username must contain only letters and numbers');
-    //         event.preventDefault();
-    //     } else if (!validatePassword(passwordInput.value)) {
-    //         alert('Password must be at least 6 characters long');
-    //         event.preventDefault();
-    //     }
-    // }
 });
