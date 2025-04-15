@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             alert(data.message);
-            window.location.href = 'login.html'; // Redirect to login page after successful registration
+            window.location.href = 'log-in.html'; // Redirect to login page after successful registration
         })
         .catch(error => {
             alert('Error registering user!');
