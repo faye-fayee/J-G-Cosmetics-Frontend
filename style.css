@@ -618,6 +618,14 @@ footer {
 
 }
 
+.address-item {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
 #add-address-btn {
     display: block;
     margin: auto;

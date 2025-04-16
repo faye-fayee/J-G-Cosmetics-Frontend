@@ -34,4 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching addresses:', error);
             alert('Failed to load addresses. Please try again later.');
         });
+
+        const logoutLink = document.getElementById("logout-link");
+        logoutLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.href = "login.html"; // or index.html
+        });
+
 });
