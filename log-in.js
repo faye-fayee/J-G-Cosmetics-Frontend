@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        console.log("Loaded userId:", userId);
+        console.log("Loaded userName:", userName);
+        console.log("Loaded userUsername:", userUsername);
+
         // If all validations pass, the form will be submitted
         fetch('http://localhost:8080/api/users/login', {
             method: 'POST',
@@ -80,13 +84,16 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(data);
 
             if (data.success) {
-                alert('Login successful!');
-                window.location.href = 'acc-details.html'; // Redirect to home page
-
                 // Save the user data to local storage
                 localStorage.setItem("userId", data.user.id);
                 localStorage.setItem("name", data.user.name);
                 localStorage.setItem("username", data.user.username);
+
+
+                alert('Login successful!');
+                window.location.href = 'acc-details.html'; // Redirect to home page
+
+                
 
             }
             else {
