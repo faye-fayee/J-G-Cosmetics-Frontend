@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const userName = localStorage.getItem("name");
     const userUsername = localStorage.getItem("username");
 
+    console.log('userId from localStorage:', userId); // Debugging line
+
     const userNameElement = document.getElementById("user-name");
     const userUsernameElement = document.getElementById("user-username");
 
@@ -10,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         userNameElement.textContent = userName;
         userUsernameElement.textContent = userUsername;
     }
+
+    console.log('Fetching addresses for userId:', userId);
 
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
         .then(response => response.json())
