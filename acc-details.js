@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
         .then(response => response.json())
         .then(data => {
+            console.log('Fetched addresses:', data);
             const addressListElement = document.getElementById("address-list");
 
             if (data && Array.isArray(data)) {

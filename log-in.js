@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response =>response.json())
         .then(data => {
+            console.log(data);
+
             if (data.success) {
                 alert('Login successful!');
                 window.location.href = 'acc-details.html'; // Redirect to home page
