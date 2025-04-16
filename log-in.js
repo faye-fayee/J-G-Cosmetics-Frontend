@@ -46,18 +46,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Event listener for the submit button
     form.addEventListener("submit", function(event) {
-        if (uNameInput.value === "") {
+        event.preventDefault(); // Prevent the default form submission
+        console.log('Form submitted!'); // Log to the console for debugging
+
+
+         // Simple validations
+         if (uNameInput.value === "" || passwordInput.value === "") {
             alert('Username and password must not be empty');
-            event.preventDefault();
-        } else if (passwordInput.value === "") {    
-            alert('Username and password must not be empty');
-            event.preventDefault();
-        } else if (!validateUName(uNameInput.value)) {
+            return;
+        }
+        if (!validateUName(uNameInput.value)) {
             alert('Username must contain only letters and numbers');
-            event.preventDefault();
-        } else if (!validatePassword(passwordInput.value)) {
+            return;
+        }
+        if (!validatePassword(passwordInput.value)) {
             alert('Password must be at least 6 characters long');
-            event.preventDefault();
+            return;
         }
 
         // If all validations pass, the form will be submitted
