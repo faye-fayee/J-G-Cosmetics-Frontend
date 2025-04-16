@@ -15,16 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorMessage = input.nextElementSibling; // Declare an error message variable for the small element
         errorMessage.textContent = '';                // Set the error message to an empty string
     }
-
     // Functions to validate the inputs
     function validateFName(name) {
         return /^[A-Za-z]+$/.test(name); // Makes sure it only contains letters
     }
-
     function validateUName(username) {
         return /^[A-Za-z0-9]+$/.test(username); // Makes sure it only contains letters and numbers
     }
-
     function validatePassword(password) {
         return password.length >= 6; // Makes sure it is at least 6 characters long
     }
@@ -37,8 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             clearMessage(NameInput);
         }
     });
-
-
     uNameInput.addEventListener("input", function() {
         if (!validateUName(uNameInput.value)) {
             showMessage(uNameInput, 'Username must contain only letters and numbers');
@@ -46,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             clearMessage(uNameInput);
         }
     });
-
     passwordInput.addEventListener("blur", function() {
         if (!validatePassword(passwordInput.value)) {
             showMessage(passwordInput, 'Password must be at least 6 characters long');
@@ -61,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent the default form submission
         console.log('Form submitted!'); // Log to the console for debugging
 
+        // Validates form inputs before submission
         if (NameInput.value === '') {
             alert('Name must be filled out');
             event.preventDefault();

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // If all validations pass, the form will be submitted
-        fetch('users/login', {
+        fetch('http://localhost:8080/api/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
