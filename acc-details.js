@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const userUsernameElement = document.getElementById("user-username");
 
     if (userName && userUsername) {
-        userNameElement.textContent(userName);
-        userUsernameElement.textContent(userUsername);
+        userNameElement.textContent = userName;
+        userUsernameElement.textContent = userUsername;
     }
 
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
-        .then(respone => respone.json())
+        .then(response => response.json())
         .then(data => {
             const addressListElement = document.getElementById("address-list");
 
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     const addressDiv = document.createElement("div");
                     addressDiv.classList.add("address-item");
                     addressDiv.innerHTML = `
-                        <p>${address.street}<p>
-                        <p>${address.fullName}<p>
-                        <p>${address.addressLine}<p>
-                        <p>${address.street}<p>, ${address.country}<p>
+                        <h3>${address.label}</h3>
+                            <p><strong>Name:</strong> ${address.fullName}</p>
+                            <p><strong>Phone:</strong> ${address.phone}</p>
+                            <p><strong>Address:</strong> ${address.addressLine}, ${address.city}, ${address.postalCode}, ${address.country}</p>
                     `;
                     addressListElement.appendChild(addressDiv);
                 });
