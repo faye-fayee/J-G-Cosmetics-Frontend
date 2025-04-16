@@ -70,16 +70,18 @@
             </header>
             
             <div class="account-details-container">
+
                 <div class="user-info" id="user-info">
                     <h1>My Account</h1>
-                    <p>Name: <span id="user-name"></span></p>
-                    <p>Email: <span id="user-email"></span></p>
-                    <a href="">Log out</a>
+                    <p>Name: <span id="user-name">Loading...</span></p>
+                    <p>Username: <span id="user-username">Loading...</span></p>
+                    <a href="log-in.html" id="logout-link">LOG OUT</a>
                 </div>
-                <div class="address-info" id="address-info">
-                    <h3>Saved Addresses</h3>
-                    <div class="address-list" id="address-list">
 
+                <div class="address-info" id="address-info">
+                    <h1>Saved Addresses</h1>
+                    <div class="address-list" id="address-list">
+                        <!-- Addresses will be dynamically added here -->
                     </div>
                     <button id="add-address-btn">Add New Address</button>
                 </div>

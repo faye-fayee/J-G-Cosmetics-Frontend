@@ -80,6 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 alert('Login successful!');
                 window.location.href = 'acc-details.html'; // Redirect to home page
+
+                // Save the user data to local storage
+                localStorage.setItem("userId", data.user.id);
+                localStorage.setItem("name", data.user.name);
+                localStorage.setItem("username", data.user.username);
+
             }
             else {
                 alert('Login failed. Please check your username and password.');

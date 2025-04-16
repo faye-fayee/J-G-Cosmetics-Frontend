@@ -601,7 +601,33 @@ footer {
 
 /* Products Page */
 .account-details-container{
-    padding: 0vh 23vh; 
+    padding: 0vh 23vh 2vh 23vh; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info p:last-of-type{
+    padding-bottom: 5vh;
+}
+
+.user-info a {
+    text-decoration: underline;
+    color: rgb(0, 0, 0);
+    font-size: 2vh;
+    font-weight: 700;
+
+}
+
+#add-address-btn {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 1vh;
+    font-size: 1.6vh;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 
