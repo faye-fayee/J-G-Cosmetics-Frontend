@@ -601,14 +601,12 @@ footer {
 
 /* Products Page */
 .account-details-container{
-    padding: 0vh 23vh 2vh 23vh; 
+    padding: 5vh 23vh 5vh 23vh; 
     display: flex;
     justify-content: space-between;
+    height: 73vh;
 }
 
-.user-info p:last-of-type{
-    padding-bottom: 5vh;
-}
 
 .user-info a {
     text-decoration: underline;
@@ -619,25 +617,36 @@ footer {
 }
 
 .address-item {
+    border-radius: 0%;
     border: 1px solid #ccc;
-    padding: 12px;
+    padding: 1vh 1vh;
     margin-bottom: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border-radius: .5vh;
 }
 
-#add-address-btn {
+.address-item h4 {
+    margin: 1.6vh 0vh;
+}
+
+.address-actions {
+    display: flex;
+}
+
+.address-actions button{
     display: block;
-    margin: auto;
-    background-color: rgba(180, 101, 101, 0.849);
+    background-color: rgb(180, 101, 101);
     color: white;
     border: none;
+    border-radius: .5vh;
+    margin-right: .5vh;
     padding: 1.2vh 1vh;
-    font-size: 1.6vh;
-    font-weight: 500;
+    font-size: 1.7vh;
     cursor: pointer;
 }
 
+.address-actions button:hover {
+    background-color: rgb(180, 101, 101);
+}
 
 .products-nav {
     display: flex;

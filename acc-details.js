@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 div.classList.add("address-item");
 
                 div.innerHTML = `
-                    <p>${address.line}</p>
+                    <h4>${address.label}</h4>
+                    <p>${address.addressLine}</p>
                     <p>${address.city}, ${address.postalCode}, ${address.country}</p>
                 `;
 
