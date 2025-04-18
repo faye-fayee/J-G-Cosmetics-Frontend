@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     logoutLink.addEventListener("click", function(e) {
         e.preventDefault();
         localStorage.clear();
-        window.location.href = "login.html";
+        window.location.href = "log-in.html";
     });
 
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
