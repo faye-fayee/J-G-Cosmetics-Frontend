@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById("log_in_form");   // Store the input element
-    const uNameInput = document.getElementById("uname");    // Store the input element
-    const passwordInput = document.getElementById("psw");   // Store the input element
+    const form = document.getElementById("log_in_form");   
+    const uNameInput = document.getElementById("uname");   
+    const passwordInput = document.getElementById("psw"); 
 
 
     function showMessage(input, message) {
-        const errorMessage = input.parentElement.querySelector("small");  // Declare an error message variable for the small element
-        errorMessage.textContent = message;            // Set the error message to the message passed in
-        errorMessage.style.color = "black";           // Set the color of the error message to black
+        const errorMessage = input.parentElement.querySelector("small");  
+        errorMessage.textContent = message;           
+        errorMessage.style.color = "black";       
     }
 
     function clearMessage(input) {
-        const errorMessage = input.parentElement.querySelector("small"); // Declare an error message variable for the small element
-        errorMessage.textContent = '';                // Set the error message to an empty string
+        const errorMessage = input.parentElement.querySelector("small");
+        errorMessage.textContent = '';                
     }
 
     function validateUName(username) {
-        return /^[A-Za-z0-9]+$/.test(username); // Makes sure it only contains letters and numbers
+        return /^[A-Za-z0-9]+$/.test(username); 
     }
 
     function validatePassword(password) {
-        return password.length >= 6; // Makes sure it is at least 6 characters long
+        return password.length >= 6; 
     }
 
     function emptyField (input) {
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Event listener for the submit button
     form.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        console.log('Form submitted!'); // Log to the console for debugging
+        event.preventDefault(); 
+        console.log('Form submitted!'); 
 
 
-         // Simple validations
+         // Simple validations before sending the request
          if (uNameInput.value === "" || passwordInput.value === "") {
             alert('Username and password must not be empty');
             return;
@@ -64,9 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        console.log("Loaded userId:", userId);
-        console.log("Loaded userName:", userName);
-        console.log("Loaded userUsername:", userUsername);
 
         // If all validations pass, the form will be submitted
         fetch('http://localhost:8080/api/users/login', {
@@ -89,11 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem("name", data.user.name);
                 localStorage.setItem("username", data.user.username);
 
-
                 alert('Login successful!');
                 window.location.href = 'acc-details.html'; // Redirect to home page
-
-                
 
             }
             else {
@@ -105,5 +99,4 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error(error);
         });
     });
-
 });
