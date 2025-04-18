@@ -521,12 +521,95 @@ footer {
 }
 
 .log-in-form-container .error-message {
-    display: block;      /* Ensures it takes up space */
-    height: 16px;        /* Adjust height to match text */
-    font-size: 11px;     /* Make the text smaller */
-    color: red;          /* Error message color */
-    margin-top: 1px;     /* Keep a small gap */
+    display: block;      
+    height: 16px;        
+    font-size: 11px;     
+    color: red;          
+    margin-top: 1px;    
 }
+
+.forgot-form-container {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.forgot-form-container h1 {
+    font-size: 5vh;
+    margin-bottom: 5vh;
+}
+
+/* .input-group {
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+} */
+
+.forgot-form-container input[type="text"] {
+    display: inline-block;
+    inline-size: 100%;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 2vh;
+    padding: 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.forgot-form-container input[type="password"] {
+    display: inline-block;
+    inline-size: 100%;
+
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-bottom: 1vh;
+    padding: 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.submit-forgot-btn {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 3vh;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+.forgot-form-container p:last-child {
+    text-align: center;
+    margin: .5vh 0;
+}
+
+.forgot-form-container p:last-child a:last-child {
+    font-size: 1.8vh;
+    color: black;
+}
+
+.forgot-form-container p {
+    margin: 0%;
+    margin-bottom: 6vh;
+}
+
+.forgot-form-container a {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+
+.input-group .error-message {
+    display: block;
+    font-size: 1.4vh;
+    color: red;
+    margin-top: 0.5vh;
+    margin-bottom: 1.5vh;
+}
+
 
 .sign-up-form-container {
     display: grid;

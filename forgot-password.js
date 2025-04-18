@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const confirmPassword = document.getElementById("confirm-psw").value;
 
         // Real-time validation
-        usernameInput.addEventListener("input", () => {
+        usernameInput.addEventListener("change", () => {
         if (!validateUsername(usernameInput.value)) {
             showMessage(usernameInput, "Username must contain only letters and numbers");
         } else {
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         });
 
-        newPasswordInput.addEventListener("input", () => {
+        newPasswordInput.addEventListener("change", () => {
         if (!validatePassword(newPasswordInput.value)) {
             showMessage(newPasswordInput, "Password must be at least 6 characters long");
         } else {
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
          });
 
-        confirmPasswordInput.addEventListener("input", () => {
+        confirmPasswordInput.addEventListener("change", () => {
         if (confirmPasswordInput.value !== newPasswordInput.value) {
             showMessage(confirmPasswordInput, "Passwords do not match");
         } else {
