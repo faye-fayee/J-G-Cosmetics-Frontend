@@ -1,5 +1,3 @@
-// 🖼️ Handle Image Thumbnails
-
 let thumbnails = document.getElementsByClassName("thumbnail");
 let activeImages = document.getElementsByClassName("active");
 

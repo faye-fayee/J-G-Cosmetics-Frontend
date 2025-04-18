@@ -541,12 +541,6 @@ footer {
     margin-bottom: 5vh;
 }
 
-/* .input-group {
-    margin-bottom: 0;
-    text-align: center;
-    width: 100%;
-} */
-
 .forgot-form-container input[type="text"] {
     display: inline-block;
     inline-size: 100%;
@@ -561,7 +555,6 @@ footer {
 .forgot-form-container input[type="password"] {
     display: inline-block;
     inline-size: 100%;
-
     background-color: #ffffff;
     border: .1vh solid #c4c4c4;
     margin-bottom: 1vh;
@@ -604,8 +597,7 @@ footer {
 
 .input-group .error-message {
     display: block;
-    font-size: 1.4vh;
-    color: red;
+    font-size: 1.6vh;
     margin-top: 0.5vh;
     margin-bottom: 1.5vh;
 }
