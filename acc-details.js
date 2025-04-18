@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "login.html";
     });
 
-    fetch (`https://localhost:8080/api/account/addresses/${userId}`)
+    fetch (`http://localhost:8080/api/account/addresses/${userId}`)
         .then (response => response.json())
         .then (addresses => {
             if (addresses.length === 0) {
