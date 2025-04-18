@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("forgot-form");
     const msg = document.getElementById("reset-msg");
 
+    // Input fields
+    const usernameInput = document.getElementById("uname");
+    const newPasswordInput = document.getElementById("new-psw");
+    const confirmPasswordInput = document.getElementById("confirm-psw");
 
+    // Function to show error messages
     function showMessage(input, message) {
         const errorMessage = input.parentElement.querySelector(".error-message");
         if (errorMessage) {
@@ -11,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Function to clear error messages
     function clearMessage(input) {
         const errorMessage = input.parentElement.querySelector('.error-message');
         if (errorMessage) {
@@ -18,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Validation functions
     function validateUsername(username) {
         return /^[A-Za-z0-9]+$/.test(username);
     }
@@ -56,47 +63,33 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             clearMessage(confirmPasswordInput);
         }
+    });
 
+    // Submit event listener
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        const username = usernameInput.value;
+        const newPassword = newPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
 
-        const username = document.getElementById("uname").value;
-        const newPassword = document.getElementById("new-psw").value;
-        const confirmPassword = document.getElementById("confirm-psw").value;
-
-        // Real-time validation
-        usernameInput.addEventListener("change", () => {
-        if (!validateUsername(usernameInput.value)) {
+        // Final validation before submission
+        if (!validateUsername(username)) {
             showMessage(usernameInput, "Username must contain only letters and numbers");
-        } else {
-            clearMessage(usernameInput);
+            return;
         }
-        });
 
-        newPasswordInput.addEventListener("change", () => {
-        if (!validatePassword(newPasswordInput.value)) {
+        if (!validatePassword(newPassword)) {
             showMessage(newPasswordInput, "Password must be at least 6 characters long");
-        } else {
-            clearMessage(newPasswordInput);
+            return;
         }
 
-        // Check password match as user types
-        if (confirmPasswordInput.value !== "" && confirmPasswordInput.value !== newPasswordInput.value) {
+        if (newPassword !== confirmPassword) {
             showMessage(confirmPasswordInput, "Passwords do not match");
-        } else {
-            clearMessage(confirmPasswordInput);
-        }
-         });
-
-        confirmPasswordInput.addEventListener("change", () => {
-        if (confirmPasswordInput.value !== newPasswordInput.value) {
-            showMessage(confirmPasswordInput, "Passwords do not match");
-        } else {
-            clearMessage(confirmPasswordInput);
+            return;
         }
 
-        
+        // If all validations pass, send the request
         fetch("http://localhost:8080/api/users/reset-password", {
             method: "POST",
             headers: {
@@ -121,6 +114,4 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error(error);
         });
     });
-});
-});
 });
