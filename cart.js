@@ -1,24 +1,28 @@
-// Load cart when clicked
 document.addEventListener("DOMContentLoaded", () => {
-    let cartIcon = document.querySelector(".shopping-cart-container");
-    let closeCartBtn = document.querySelector(".close-cart-btn");
-    let body = document.body;
-    let listProductsHTML = document.querySelector(".cart-list");
+    const cartIcon = document.querySelector(".shopping-cart-container");
+    const closeCartBtn = document.querySelector(".close-cart-btn");
+    const body = document.body;
+    const listProductsHTML = document.querySelector(".cart-list");
 
-    let listProducts = [];
+    cartIcon.addEventListener("click", toggleCart);
+    closeCartBtn.addEventListener("click", toggleCart);
 
-    cartIcon.addEventListener("click", (event) => {
-        event.preventDefault();
-        body.classList.toggle("show-cart");
-    });
-
-
-    closeCartBtn.addEventListener("click", () => {
-          event.preventDefault();
-          body.classList.toggle("show-cart");
-
-    });
+    syncCartFromLocalStorage();
 });
+
+function toggleCart(event) {
+    event.preventDefault();
+    document.body.classList.toggle("show-cart");
+}
+
+// Sync Cart from LocalStorage
+function syncCartFromLocalStorage() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length > 0) {
+        syncCartWithBackend(cart);
+    }
+}
 
 // Update Cart Counter
 function updateCartCounter(counter) {
@@ -33,20 +37,17 @@ function renderCartItems() {
     const cartList = document.querySelector(".cart-list");
 
     // Clear cart before rendering
-    cartList.innerHTML = "";
+    cartList.innerHTML = cart.length === 0 
+        ? `<p class="empty-cart-message">Your cart is empty 🛒</p>`
+        : cart.map((item, index) => createCartItemHTML(item, index)).join("");
 
-    if (cart.length === 0) {
-        cartList.innerHTML = `
-            <p class="empty-cart-message">Your cart is empty 🛒</p>
-        `;
-        return;
-    }
+    attachCartListeners();
+}
 
-    cart.forEach((item, index) => {
-        const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
-
-        cartItem.innerHTML = `
+// Generate Cart Item HTML
+function createCartItemHTML(item, index) {
+    return `
+        <div class="cart-item">
             <div class="cart-item-img">
                 <img src="${item.image}" alt="${item.name}">
             </div>
@@ -61,83 +62,149 @@ function renderCartItems() {
                 <span>${item.quantity}</span>
                 <span class="plus" data-index="${index}">&plus;</span>
             </div>
-        `;
-        cartList.appendChild(cartItem);
-    });
-
-    attachCartListeners(); // Attach listeners for + and - buttons
+        </div>
+    `;
 }
 
-
-// Handle Cart Quantity Updates
+// Attach Listeners for Quantity Buttons
 function attachCartListeners() {
     document.querySelectorAll(".minus").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            const index = parseInt(e.target.dataset.index);
-            updateQuantity(index, -1);
-        });
+        btn.addEventListener("click", (e) => updateQuantity(parseInt(e.target.dataset.index), -1));
     });
 
     document.querySelectorAll(".plus").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-            const index = parseInt(e.target.dataset.index);
-            updateQuantity(index, 1);
-        });
+        btn.addEventListener("click", (e) => updateQuantity(parseInt(e.target.dataset.index), 1));
     });
 }
 
-// Update Quantity in Cart
+// Debounced Sync Cart with Backend
+let syncTimeout;
+function debouncedSync(cart) {
+    clearTimeout(syncTimeout);
+    syncTimeout = setTimeout(() => syncCartWithBackend(cart), 300);
+}
+
+// Remove Item from Cart Backend
+function removeItemFromCartBackend(item) {
+    const payload = {
+        userId: getLoggedInUserId(),
+        sessionId: getSessionId(),
+        productId: item.id
+    };
+
+    fetch('http://localhost:8080/api/cart/remove/cart-item', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+// Handle Response from Backend
+function handleResponse(response) {
+    response.text().then(text => {
+        try {
+            const data = JSON.parse(text);
+            console.log("Item synced from cart:", data);
+        } catch (e) {
+            console.log("Item synced from cart (non-JSON response):", text);
+        }
+    });
+}
+
+// Handle Error in Fetch
+function handleError(error) {
+    console.error("Error removing item from cart:", error);
+}
+
+// Update Quantity in Cart and Remove Item if Quantity is 0
 function updateQuantity(index, change) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart[index]) {
         cart[index].quantity += change;
         if (cart[index].quantity <= 0) {
-            cart.splice(index, 1); // Remove item if quantity is 0
+            const item = cart.splice(index, 1)[0];
+            removeItemFromCartBackend(item);
         }
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    debouncedSync(cart);
     updateCartCounter(document.querySelector(".cart-counter"));
-    renderCartItems(); // Refresh cart items
+    renderCartItems();
 }
 
-// Open/Close Cart Tab
-document.querySelector(".cart-icon").addEventListener("click", () => {
-    document.body.classList.add("show-cart");
-    renderCartItems();
-});
-
-document.querySelector(".close-cart-btn").addEventListener("click", () => {
-    document.body.classList.remove("show-cart");
-});
 
 // Add to Cart Functionality
 function addToCart(product, selectedShade, quantity) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if the item already exists in the cart (same product + same shade)
-    const existingItemIndex = cart.findIndex(
-        (item) => item.id === product.id && item.shade === selectedShade
-    );
+    const existingItemIndex = cart.findIndex((item) => item.id === product.id && item.shade === selectedShade);
 
     if (existingItemIndex !== -1) {
-        // Update quantity if item already exists
         cart[existingItemIndex].quantity += quantity;
     } else {
-        // Add new item if it doesn’t exist
-        cart.push({
-            id: product.id,
-            name: product.name,
-            shade: selectedShade,
-            price: product.price,
-            quantity: quantity,
-            image: product.images[0],
-        });
+        cart.push(createCartItem(product, selectedShade, quantity));
     }
 
-    // ✅ Save cart to LocalStorage
     localStorage.setItem("cart", JSON.stringify(cart));
-
-    // ✅ Update Cart Counter and Render Items
     updateCartCounter(document.querySelector(".cart-counter"));
-    renderCartItems(); // Update cart immediately
+    renderCartItems();
+    syncCartWithBackend(cart);
+}
+
+// Create Cart Item Object
+function createCartItem(product, selectedShade, quantity) {
+    return {
+        id: product.id,
+        name: product.name,
+        shade: selectedShade,
+        price: product.price,
+        quantity: quantity,
+        image: product.images[0]
+    };
+}
+
+// Sync Cart with Backend
+function syncCartWithBackend(cart) {
+    const userId = getLoggedInUserId();
+    const sessionId = getSessionId();
+
+    const transformedCart = cart.map(item => ({
+        productId: item.id,
+        quantity: item.quantity,
+        sessionId: sessionId,
+        userId: userId,
+        shade: item.shade
+    }));
+
+    console.log("Transformed cart:", transformedCart);
+
+    fetch('http://localhost:8080/api/cart/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(transformedCart)
+    })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+// Get Logged-in User ID
+function getLoggedInUserId() {
+    const id = localStorage.getItem("userId");
+    return id && !isNaN(id) ? parseInt(id) : null;
+}
+
+// Get Session ID (Generate if Not Exist)
+function getSessionId() {
+    let sessionId = localStorage.getItem("sessionId");
+    if (!sessionId) {
+        sessionId = generateSessionId();
+        localStorage.setItem("sessionId", sessionId);
+    }
+    return sessionId;
+}
+
+// Generate Session ID for Guest Users
+function generateSessionId() {
+    return "guest_" + Math.random().toString(36).substr(2, 9);
 }
