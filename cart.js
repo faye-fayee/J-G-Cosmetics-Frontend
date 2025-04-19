@@ -52,7 +52,7 @@ function createCartItemHTML(item, index) {
                 <img src="${item.image}" alt="${item.name}">
             </div>
             <div class="cart-item-name">
-                ${item.name} (${item.shade})
+                ${item.name} ${item.shade ? ` (${item.shade})` : ""}
             </div>
             <div class="total-price">
                 ₱${(item.price * item.quantity).toLocaleString()}
@@ -138,7 +138,9 @@ function updateQuantity(index, change) {
 // Add to Cart Functionality
 function addToCart(product, selectedShade, quantity) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingItemIndex = cart.findIndex((item) => item.id === product.id && item.shade === selectedShade);
+    const normalizedShade = selectedShade ?? null;
+    const existingItemIndex = cart.findIndex((item) => item.id === product.id && item.shade === normalizedShade);
+
 
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity += quantity;
@@ -157,7 +159,7 @@ function createCartItem(product, selectedShade, quantity) {
     return {
         id: product.id,
         name: product.name,
-        shade: selectedShade,
+        shade: selectedShade ?? null,
         price: product.price,
         quantity: quantity,
         image: product.images[0]

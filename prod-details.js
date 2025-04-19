@@ -27,14 +27,15 @@ document.addEventListener("DOMContentLoaded", async function () {
         const response = await fetch(`http://localhost:8080/api/products/${productId}`);
         const product = await response.json();
 
+        product.images = typeof product.images === "string" ? JSON.parse(product.images) : product.images;
+        product.shades = typeof product.shades === "string" ? JSON.parse(product.shades) : product.shades;
+
         console.log(product); // Log the product data to verify the structure
         console.log("Parsed Shades:", product.shades);
 
+        const hasShades = Array.isArray(product.shades) && product.shades.length > 0;
 
-        product.images = JSON.parse(product.images);
-        product.shades = JSON.parse(product.shades);
-
-
+        
         if (product) {
             // Set title and description
             document.querySelector(".product-title").innerText = product.name;
@@ -74,14 +75,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             // Render shades if available
             const shadeContainer = document.querySelector(".shades-container");
-            if (product.shades.length > 0) {
+            if (hasShades) {
                 shadeContainer.innerHTML = "<h4>Shades</h4>";
                 product.shades.forEach((shade) => {
                     const button = document.createElement("button");
                     button.innerText = shade;
                     button.classList.add("shade-btn");
 
-                    // Shade button click
                     button.addEventListener("click", (event) => {
                         document.querySelectorAll(".shade-btn").forEach((btn) => btn.classList.remove("selected"));
                         event.target.classList.add("selected");
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             } else {
                 shadeContainer.innerHTML = "";
                 shadeContainer.style.display = "none";
-            }
+            }   
 
             //  Add to Cart Button
             const addToCartBtn = document.querySelector(".add-to-cart-btn");
@@ -101,15 +101,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             document.querySelector(".add-to-cart-btn").addEventListener("click", function () {
                 const selectedShade = document.querySelector(".shade-btn.selected")?.innerText;
+                const quantity = parseInt(document.querySelector(".add-to-cart input").value);
 
-                if (!selectedShade) {
+                if (hasShades && !selectedShade) {
                     alert("Please select a shade before adding to cart! 🎨");
                     return;
                 }
 
-                const quantity = parseInt(document.querySelector(".add-to-cart input").value);
-                addToCart(product, selectedShade, quantity);
-                // Log cart to check if items are still stored in localStorage
+                if (isNaN(quantity) || quantity <= 0) {
+                    alert("Please enter a valid quantity.");
+                    return;
+                }
+
+                const shadeToAdd = hasShades ? selectedShade : null;
+                addToCart(product, shadeToAdd, quantity);
+
                 console.log(JSON.parse(localStorage.getItem('cart')));
 
             });
