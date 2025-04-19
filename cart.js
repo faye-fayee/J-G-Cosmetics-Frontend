@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cartIcon = document.querySelector(".shopping-cart-container");
     const closeCartBtn = document.querySelector(".close-cart-btn");
-    const body = document.body;
-    const listProductsHTML = document.querySelector(".cart-list");
-
     cartIcon.addEventListener("click", toggleCart);
     closeCartBtn.addEventListener("click", toggleCart);
 
     syncCartFromLocalStorage();
+    calculateCartTotal();
+    renderCartItems(); // ← this is missing
+    updateCartCounter(document.querySelector(".cart-counter")); // ← also important
 });
 
 function toggleCart(event) {
@@ -36,13 +36,23 @@ function renderCartItems() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const cartList = document.querySelector(".cart-list");
 
-    // Clear cart before rendering
-    cartList.innerHTML = cart.length === 0 
+    const totalHTML = `
+        <div class="cart-total-container">
+            <h2>Total: ₱<span id="cart-total">0.00</span></h2>
+        </div>
+    `;
+
+    const itemsHTML = cart.length === 0 
         ? `<p class="empty-cart-message">Your cart is empty 🛒</p>`
         : cart.map((item, index) => createCartItemHTML(item, index)).join("");
 
+    // Set the combined HTML (total + items)
+    cartList.innerHTML = totalHTML + itemsHTML;
+
     attachCartListeners();
+    calculateCartTotal(); // this will now find #cart-total and update it
 }
+
 
 // Generate Cart Item HTML
 function createCartItemHTML(item, index) {
@@ -210,3 +220,20 @@ function getSessionId() {
 function generateSessionId() {
     return "guest_" + Math.random().toString(36).substr(2, 9);
 }
+
+// Calculate Cart Total
+function calculateCartTotal() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+    const totalElement = document.getElementById('cart-total');
+    if (totalElement) {
+        totalElement.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+}
+
+  

@@ -252,7 +252,6 @@ main {
     z-index: 1001;
     transition: inset .5s ease-in-out;
     border-left: 1px solid #c4c4c4;
-    
 }
 
 body.show-cart .cart-tab {
@@ -269,10 +268,20 @@ body.show-cart main {
     font-weight: 500;
 }
 
+.cart-total-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 4vh 1vh;
+    font-size: 1.7vh;
+    border-bottom: 1px solid #ccc;
+}
+
+
 .cart-btn {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
 
 .cart-btn button {
     background-color: #f6f6f6;
