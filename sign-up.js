@@ -1,35 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('sign_up_form');   // Store the input element
-    const NameInput = document.getElementById('name');    // Store the input element
-    const uNameInput = document.getElementById('uname');    // Store the input element
-    const passwordInput = document.getElementById('psw');   // Store the input element
+    const form = document.getElementById('sign_up_form');   
+    const NameInput = document.getElementById('name');    
+    const uNameInput = document.getElementById('uname');    
+    const passwordInput = document.getElementById('psw');  
 
     // Function to show Error Message using the small element
     function showMessage(input, message) {
-        const errorMessage = input.nextElementSibling;  // Declare an error message variable for the small element
-        errorMessage.textContent = message;            // Set the error message to the message passed in
-        errorMessage.style.color = "black";           // Set the color of the error message to black
+        const errorMessage = input.nextElementSibling;  
+        errorMessage.textContent = message;            
+        errorMessage.style.color = "black";           
     }
     // Function to clear the Error Message
     function clearMessage(input) {
-        const errorMessage = input.nextElementSibling; // Declare an error message variable for the small element
-        errorMessage.textContent = '';                // Set the error message to an empty string
+        const errorMessage = input.nextElementSibling; 
+        errorMessage.textContent = '';                
     }
+
     // Functions to validate the inputs
     function validateFName(name) {
-        return /^[A-Za-z]+$/.test(name); // Makes sure it only contains letters
+        return /^[a-zA-Z\s]*$/.test(name); 
     }
     function validateUName(username) {
-        return /^[A-Za-z0-9]+$/.test(username); // Makes sure it only contains letters and numbers
+        return /^[A-Za-z0-9]+$/.test(username); 
     }
     function validatePassword(password) {
-        return password.length >= 6; // Makes sure it is at least 6 characters long
+        return password.length >= 6; 
     }
 
     // Event Listeners for the input fields
     NameInput.addEventListener("input", function() {
         if (!validateFName(NameInput.value)) {
-            showMessage(NameInput, 'Name must contain only letters');
+            showMessage(NameInput, 'Name must contain only letters and spaces');
         } else {
             clearMessage(NameInput);
         }
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clearMessage(uNameInput);
         }
     });
-    passwordInput.addEventListener("blur", function() {
+    passwordInput.addEventListener("input", function() {
         if (!validatePassword(passwordInput.value)) {
             showMessage(passwordInput, 'Password must be at least 6 characters long');
         } else {
@@ -52,28 +53,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event Listener for the submit form
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        console.log('Form submitted!'); // Log to the console for debugging
+        event.preventDefault();
+        console.log('Form submitted!'); 
 
         // Validates form inputs before submission
-        if (NameInput.value === '') {
-            alert('Name must be filled out');
-            event.preventDefault();
-        } else if (uNameInput.value === '') {
-            alert('Username must be filled out');
-            event.preventDefault();
-        } else if (passwordInput.value === '') {
-            alert('Password must be filled out');
-            event.preventDefault();
-        } else if (!validateFName(NameInput.value)) {
+        if (NameInput.value === ''|| uNameInput.value === '' || passwordInput.value === '') {
+            alert('All fields must be filled out');
+            return;
+        } 
+        if (!validateFName(NameInput.value)) {
             alert('Name must contain only letters');
-            event.preventDefault();
-        } else if (!validateUName(uNameInput.value)) { 
+            return;
+        }
+        if (!validateUName(uNameInput.value)) { 
             alert('Username must contain only letters and numbers');
-            event.preventDefault();
-        } else if (!validatePassword(passwordInput.value)) {
+            return;
+        } 
+        if (!validatePassword(passwordInput.value)) {
             alert('Password must be at least 6 characters long');
-            event.preventDefault();
+            return;
         }
 
         // If all validations pass, the form will be submitted
@@ -92,15 +90,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
-            return response.json(); // Parse the JSON response
+            return response.json(); 
         })
         .then(data => {
             alert(data.message);
-            window.location.href = 'log-in.html'; // Redirect to login page after successful registration
+            window.location.href = 'log-in.html'; 
         })
         .catch(error => {
             alert('Error registering user!');
-            console.error('Error:', error); // Log the error to the console for debugging
+            console.error('Error:', error); 
         });
     });
 });
