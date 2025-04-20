@@ -672,18 +672,57 @@ footer {
     padding-left: 3vh;
 }
 
-.accdets-button {
-    display: block;
+.add-address-form-container {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    /* height: 80%; */
 }
 
+.add-address-form-container h1 {
+    font-size: 6vh;
+    margin-bottom: 5vh;
+}
+
+.add-address-form-container label {
+    font-size: 2.2vh;
+}
+
+.add-address-form-container input[type="text"]{
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    padding: 1vh 60vh 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.add-address-form-container input:placeholder-shown {
+    color: #8b8a8a;
+}
+
+.submit-address-btn {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 3vh;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+/* Products Page */
 .products-h1 {
     font-size: 4vh;
     margin: 5vh 0vh;
     text-align: center;
 }
 
-
-/* Products Page */
 .account-details-container{
     padding: 5vh 23vh 5vh 23vh; 
     display: flex;
@@ -710,6 +749,10 @@ footer {
 
 .address-item h4 {
     margin: 1.6vh 0vh;
+}
+
+.address-item p {
+    font-size: 1.7vh;
 }
 
 .address-actions {

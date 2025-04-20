@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.getElementById("logout-link");
     const addressList = document.getElementById("address-list");
     const addAddressButton = document.getElementById("add-address-btn");
+    const deleteAddressButton = document.getElementById("delete-address-btn");
 
     const name = localStorage.getItem("name");
     const username = localStorage.getItem("username");
@@ -24,6 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "log-in.html";
     });
 
+    addAddressButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        window.location.href = "add-address.html";
+    });
+    deleteAddressButton.addEventListener("click", function() {
+
+    });
+
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
         .then (response => response.json())
         .then (addresses => {
@@ -38,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 div.innerHTML = `
                     <h4>${address.label}</h4>
+                    <p>${address.fullName} ${address.phone}</p>
                     <p>${address.addressLine}</p>
                     <p>${address.city}, ${address.postalCode}, ${address.country}</p>
                 `;
