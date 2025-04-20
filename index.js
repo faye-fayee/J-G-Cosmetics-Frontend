@@ -1,12 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const accountLink = document.getElementById("account-link");
-
-  if (localStorage.getItem("userId")) {
-      accountLink.setAttribute("href", "acc-details.html");
-  } else {
-      accountLink.setAttribute("href", "log-in.html");
-  }
+  updateAccountLinks();
 });
+
+// In your shared JS
+function updateAccountLinks() {
+  const accountLinks = document.querySelectorAll(".account-link");
+  const userId = localStorage.getItem("userId");
+
+  accountLinks.forEach(link => {
+      link.setAttribute("href", userId ? "acc-details.html" : "log-in.html");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", updateAccountLinks);
+
 
 //Js for the dropdown menu
 function myFunction() {

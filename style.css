@@ -716,6 +716,16 @@ footer {
     cursor: pointer;
 }
 
+.add-address-form-container a {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.add-address-form-container p {
+    text-align: center;
+}
+
 /* Products Page */
 .products-h1 {
     font-size: 4vh;
