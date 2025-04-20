@@ -6,10 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     syncCartFromLocalStorage();
     calculateCartTotal();
-    renderCartItems(); // ← this is missing
-    updateCartCounter(document.querySelector(".cart-counter")); // ← also important
+    renderCartItems();
+    updateCartCounter(document.querySelector(".cart-counter")); 
+    fetchCartFromBackend(); // Fetch cart from backend on page load
 });
 
+
+// Open and Close Cart
 function toggleCart(event) {
     event.preventDefault();
     document.body.classList.toggle("show-cart");
@@ -144,7 +147,6 @@ function updateQuantity(index, change) {
     renderCartItems();
 }
 
-
 // Add to Cart Functionality
 function addToCart(product, selectedShade, quantity) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -200,6 +202,49 @@ function syncCartWithBackend(cart) {
     .catch(handleError);
 }
 
+// Fetch Cart from Backend after Login
+function fetchCartFromBackend() {
+    const userId = getLoggedInUserId(); // null if guest
+    const sessionId = getSessionId();   // always exists
+
+    const url = userId 
+        ? `http://localhost:8080/api/cart/user/${userId}`
+        : `http://localhost:8080/api/cart/session/${sessionId}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(cartItems => {
+            console.log("Fetched cart items:", cartItems);
+
+            // Transform the backend data into frontend format
+            const transformed = cartItems.map(item => {
+                let images = [];
+
+                try {
+                    images = JSON.parse(item.product?.images || "[]");
+                } catch (e) {
+                    console.error("Error parsing product images:", e);
+                }
+
+                return {
+                    id: item.product?.id || item.id, // fallback
+                    name: item.product?.name || item.name || "Unknown Product",
+                    image: images[0] || "img/default.png",
+                    quantity: item.quantity || 1,
+                    price: item.price || 0,
+                    shade: item.shade || ""
+                };
+            });
+
+            localStorage.setItem("cart", JSON.stringify(transformed));
+            renderCartItems();
+        })
+        .catch(error => {
+            console.error("Error fetching cart items:", error);
+        });
+}
+
+
 // Get Logged-in User ID
 function getLoggedInUserId() {
     const id = localStorage.getItem("userId");
@@ -235,5 +280,3 @@ function calculateCartTotal() {
         totalElement.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 }
-
-  

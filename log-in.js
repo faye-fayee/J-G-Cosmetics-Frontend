@@ -86,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem("name", data.user.name);
                 localStorage.setItem("username", data.user.username);
 
+                fetchCartFromBackend();
+
                 alert('Login successful!');
                 window.location.href = 'acc-details.html'; // Redirect to home page
 
