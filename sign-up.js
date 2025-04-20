@@ -86,19 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 password: passwordInput.value
             })
         })
-        .then(response => {
+        .then(async response => {
+            const data = await response.json();
+        
             if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
+                throw new Error(data.message || 'Something went wrong');
             }
-            return response.json(); 
-        })
-        .then(data => {
+        
             alert(data.message);
-            window.location.href = 'log-in.html'; 
+            window.location.href = 'log-in.html';
         })
         .catch(error => {
-            alert('Error registering user!');
-            console.error('Error:', error); 
+            alert(error.message);
+            form.reset();
+            console.error('Error:', error);
         });
     });
 });
