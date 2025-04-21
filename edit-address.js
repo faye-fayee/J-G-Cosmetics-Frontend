@@ -88,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
             label: addressLabel
         };
 
-        if (!validateInput(updatedAddress)) {
-            return;
-        }
+        // if (!validateInput(updatedAddress)) {
+        //     return;
+        // }
 
         fetch(`http://localhost:8080/api/account/addresses/${currentAddressId}`, {
             method: 'PUT',

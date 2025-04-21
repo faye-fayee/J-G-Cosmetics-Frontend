@@ -677,7 +677,6 @@ footer {
     justify-items: center;
     align-content: center;
     align-items: center;
-    /* height: 80%; */
 }
 
 .add-address-form-container h1 {
@@ -686,7 +685,7 @@ footer {
 }
 
 .add-address-form-container label {
-    font-size: 2.2vh;
+    font-size: 2.5vh;
 }
 
 .add-address-form-container input[type="text"]{
@@ -723,6 +722,55 @@ footer {
 }
 
 .add-address-form-container p {
+    text-align: center;
+}
+
+.edit-address-form-container {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+.edit-address-form-container h1 {
+    font-size: 6vh;
+    margin-bottom: 5vh;
+}
+
+.edit-address-form-container label {
+    font-size: 2.5vh;
+}
+
+.edit-address-form-container input[type="text"]{
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    border: .1vh solid #c4c4c4;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+    padding: 1vh 60vh 1vh 2vh;
+    box-sizing: border-box;
+    font-size: 2vh;
+}
+
+.edit-address-form-container button {
+    display: block;
+    margin: auto;
+    background-color: rgba(180, 101, 101, 0.849);
+    color: white;
+    border: none;
+    padding: 1.2vh 3vh;
+    font-size: 2vh;
+    cursor: pointer;
+}
+
+.edit-address-form-container a {
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.edit-address-form-container p {
     text-align: center;
 }
 
