@@ -785,7 +785,8 @@ footer {
     padding: 5vh 23vh 5vh 23vh; 
     display: flex;
     justify-content: space-between;
-    height: 73vh;
+    min-height: 73vh;
+    max-height: 90%;
 }
 
 
@@ -794,44 +795,86 @@ footer {
     color: rgb(0, 0, 0);
     font-size: 2vh;
     font-weight: 700;
+}
+
+.address-header {
+    display: flex;
+    align-self: center;
 
 }
 
+.address-header button {
+    border: .3vh solid rgb(218, 130, 130);
+    background-color: transparent;
+    color: white;
+    border-radius: .5vh;
+    margin-left: 2.5vh;
+    padding: .5vh 1vh;
+    font-size: 1.9vh;
+    color: rgb(218, 130, 130);
+    height: auto;
+    align-self: center;
+    cursor: pointer;
+}
+
+.address-header button:hover {
+    background-color: rgb(224, 223, 223);
+}
+
+.address-list {
+    display:grid;
+    grid-template-columns: repeat(3, minmax(14vh, 1fr));
+    gap: 2vh;
+}
+
 .address-item {
-    border-radius: 0%;
-    border: 1px solid #ccc;
-    padding: 1vh 1vh;
+    border: 2px solid #ccc;
+    padding: 1vh 2vh 2vh 2vh;
     margin-bottom: 10px;
     border-radius: .5vh;
 }
 
+.address-item:hover {
+    background-color:  rgb(224, 223, 223);
+}
+
 .address-item h4 {
     margin: 1.6vh 0vh;
+    text-decoration: underline;
 }
 
 .address-item p {
     font-size: 1.7vh;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
-.address-actions {
+.address-item p:last-of-type {
+    margin-bottom: 1vh;
+}
+
+.address-btn-actions {
     display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
-.address-actions button{
-    display: block;
-    background-color: rgb(180, 101, 101);
+.address-btn-actions button {
+    display: inline;
+    background-color: rgba(218, 130, 130, 0.753);
     color: white;
     border: none;
     border-radius: .5vh;
-    margin-right: .5vh;
-    padding: 1.2vh 1vh;
+    margin-right: .3vh;
+    padding: .5vh 1vh;
     font-size: 1.7vh;
     cursor: pointer;
 }
 
-.address-actions button:hover {
-    background-color: rgb(180, 101, 101);
+.address-item button:hover {
+    background-color: rgba(180, 101, 101, 0.907);   
 }
+
 
 .products-nav {
     display: flex;

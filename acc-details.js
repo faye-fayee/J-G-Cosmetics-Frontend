@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.getElementById("logout-link");
     const addressList = document.getElementById("address-list");
     const addAddressButton = document.getElementById("add-address-btn");
-    const deleteAddressButton = document.getElementById("delete-address-btn");
 
     const name = localStorage.getItem("name");
     const username = localStorage.getItem("username");
@@ -29,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         window.location.href = "add-address.html";
     });
-    deleteAddressButton.addEventListener("click", function() {
-
-    });
 
     fetch (`http://localhost:8080/api/account/addresses/${userId}`)
         .then (response => response.json())
@@ -50,22 +46,42 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>${address.fullName} ${address.phone}</p>
                     <p>${address.addressLine}</p>
                     <p>${address.city}, ${address.postalCode}, ${address.country}</p>
-                    <button class="edit-btn" data-label="${address.label}">Edit</button>
-                    <button class="delete-btn" data-label="${address.label}">Delete</button>
+                    <div class="address-btn-actions">
+                    <button class="edit-address-btn" data-label="${address.label}">Edit</button>
+                    <button class="delete-address-btn" data-id="${address.id}">Delete</button>
+                    </div>
                 `;
 
                 addressList.appendChild(div);
             });
-            document.querySelectorAll(".edit-btn").forEach(button => {
+            document.querySelectorAll(".edit-address-btn").forEach(button => {
                 button.addEventListener("click", function () {
                     const label = button.getAttribute("data-label");
                     window.location.href = `edit-address.html?label=${encodeURIComponent(label)}`;
                 });
             });
-            document.querySelectorAll(".delete-btn").forEach(button => {
+            document.querySelectorAll(".delete-address-btn").forEach(button => {
                 button.addEventListener("click", function () {
-                    const label = button.getAttribute("data-label");
-                    // TODO: confirm delete and call DELETE endpoint
+                    const id = button.getAttribute("data-id");
+                    
+                    const confirmDelete = confirm("Are you sure you want to delete this address?");
+                    if(confirmDelete) {
+                        fetch(`http://localhost:8080/api/account/addresses/${id}`, {
+                            method: 'DELETE'
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                button.closest(".address-item").remove();
+                                alert("Address deleted successfully.");
+                            } else {
+                                return response.text().then(text => { throw new Error(text); });
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error deleting address:", error);
+                            alert("Failed to delete address.");
+                        });
+                    }
                 });
             });
             
