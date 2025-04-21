@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!name || !username || !userId) {
         alert("User not authenticated. Redirecting to login.");
-        window.location.href = "login.html";
+        window.location.href = "log-in.html";
         return;
     }
 
@@ -50,10 +50,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>${address.fullName} ${address.phone}</p>
                     <p>${address.addressLine}</p>
                     <p>${address.city}, ${address.postalCode}, ${address.country}</p>
+                    <button class="edit-btn" data-label="${address.label}">Edit</button>
+                    <button class="delete-btn" data-label="${address.label}">Delete</button>
                 `;
 
                 addressList.appendChild(div);
             });
+            document.querySelectorAll(".edit-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const label = button.getAttribute("data-label");
+                    window.location.href = `edit-address.html?label=${encodeURIComponent(label)}`;
+                });
+            });
+            document.querySelectorAll(".delete-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const label = button.getAttribute("data-label");
+                    // TODO: confirm delete and call DELETE endpoint
+                });
+            });
+            
         })
         .catch(error => {
             console.error("Error fetching addresses:", error);

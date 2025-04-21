@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - J & G Cosmetics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+    <script src="add-address.js"></script>
+    <script src="edit-address.js"></script>
+    <script src="cart.js"></script>
+    <script src="prod-details.js"></script>
+
+</head>
+<body>
+    <main>
+        <section class="main-section">
+            <header class="navbar">
+                <nav class="left-nav">
+                    <div class="img-logo">
+                        <a href="#">
+                        <img src="img/LOGO (NO BG).png" alt="">
+                        </a>
+                    </div>
+                    <div class="unstyled-home-text">
+                        <strong><a href="index.html">HOME</a> </strong>
+                    </div>
+                    <div class="dropdown">
+                        <strong>
+                            <button onclick="myFunction()" class="shop-btn">SHOP
+                                <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
+                                </button>
+                        </strong>
+                        <div id="myDropdown" class="dropdown-list">
+                            <a href="products.html">All Products</a>
+                            <a href="lips.html">Lips</a>
+                            <a href="eyes.html">Eyes</a>
+                            <a href="brows.html">Brows</a>
+                            <a href="cheeks.html">Cheeks</a>
+                            <a href="tools.html">Tools</a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <nav class="right-nav">
+                    <div class="search-div">
+                        <form>
+                            <div class="search">
+                                <span class="search-icon material-symbols-outlined">search</span>
+                                <input class="search-input" type="search" placeholder="Search for a product...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="far-right">
+                        <a class="account-link"><span class="person-icon material-symbols-outlined">person</span></a>
+
+
+                        <a class="shopping-cart-container" href="">
+                            <span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span>
+                            <span class="cart-counter">0</span>
+                        </a>
+                        
+                    </div>
+                </nav>
+            </header>
+
+            <div class="edit-address-form-container">
+                <h1>Edit Address</h1>
+                <form autocomplete="off" id="edit-address-form">
+
+                    <label>Label (read only)</label>
+                    <input type="text" name="addressLabel" id="addresslabel" readonly>
+
+                    <label>Full Name</label>
+                    <input type="text" name="fullName" id="fullName" required>
+                    
+                    <label>Phone Number</label>
+                    <input type="text" name="phoneNumber" id="phoneNumber" required>
+
+                    <label>Address Line</label>
+                    <input type="text" name="addressLine" id="addressLine" required>
+
+                    <label>City</label>
+                    <input type="text" name="addressCity" id="addressCity" required>
+
+                    <label>Postal Code</label>
+                    <input type="text" name="postalCode" id="postalCode" required>
+
+                    <label>Country</label>
+                    <input type="text" name="addressCountry" id="addressCountry" required>
+
+                    <p><button type="submit">Save Changes</button></p>
+                    <p><a class="account-link"> Back to Account</a></p>
+                
+                </form>
+            </div>
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <h4>SHOP</h4>
+                    <div class="product-category">
+                        <ul class="category-list">
+                            <li><a href="products.html">ALL PRODUCTS</a></li>
+                            <li><a href="lips.html">LIPS</a></li>
+                        </ul>
+                        <ul class="category-list">
+                            <li><a href="eyes.html">EYES</a></li>
+                            <li><a href="brows.html">BROWS</a></li>
+                        </ul>
+                        <ul class="category-list">
+                            <li><a href="cheeks.html">CHEEKS</a></li>
+                            <li><a href="tools.html">TOOLS</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h4>FIND US</h4>
+                    <ul class="social-media-icon-list">
+                        <li><a href=""><svg class="fb-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewbox="0 0 30 30">
+                            <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,
+                            1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,
+                            18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"></path>
+                        </svg></a></li>
+                        <li><a href=""><svg class="ig-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewbox="0 0 30 30">
+                            <path d="M 9.9980469 3 C 6.1390469 3 3 6.1419531 3 10.001953 L 3 20.001953 C 3 23.860953 6.1419531 27 
+                            10.001953 27 L 20.001953 27 C 23.860953 27 27 23.858047 27 19.998047 L 27 9.9980469 C 27 6.1390469 23.858047 
+                            3 19.998047 3 L 9.9980469 3 z M 22 7 C 22.552 7 23 7.448 23 8 C 23 8.552 22.552 9 22 9 C 21.448 9 21 8.552 
+                            21 8 C 21 7.448 21.448 7 22 7 z M 15 9 C 18.309 9 21 11.691 21 15 C 21 18.309 18.309 21 15 21 C 11.691 21 9 
+                            18.309 9 15 C 9 11.691 11.691 9 15 9 z M 15 11 A 4 4 0 0 0 11 15 A 4 4 0 0 0 15 19 A 4 4 0 0 0 19 15 A 4 4
+                             0 0 0 15 11 z"></path>
+                        </svg></a></li>
+                        <li><a href=""><svg class="x-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewbox="0 0 30 30">
+                            <path d="M 6 4 C 4.895 4 4 4.895 4 6 L 4 24 C 4 25.105 4.895 26 6 26 L 24 26 C 25.105 26 26 25.105 26 
+                            24 L 26 6 C 26 4.895 25.105 4 24 4 L 6 4 z M 8.6484375 9 L 13.259766 9 L 15.951172 12.847656 L 19.28125 
+                            9 L 20.732422 9 L 16.603516 13.78125 L 21.654297 21 L 17.042969 21 L 14.056641 16.730469 L 10.369141 21 
+                            L 8.8945312 21 L 13.400391 15.794922 L 8.6484375 9 z M 10.878906 10.183594 L 17.632812 19.810547 L 19.
+                            421875 19.810547 L 12.666016 10.183594 L 10.878906 10.183594 z"></path>
+                        </svg></a></li>
+                        <li><a href=""><svg class="shopee-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewbox="0 0 30 30">
+                        <path id="Ð¡Ð»Ð¾Ð¹_1" d="M25.6,6.5c-0.3-0.3-0.7-0.5-1.1-0.5h-4.5c-0.5-2.3-2.5-4-4.9-4s-4.4,1.7-4.9,4H5.6c-0.4,
+                        0-0.8,0.2-1.1,0.5 C4.1,6.8,4,7.3,4,7.7l0.7,15.2C4.8,24.7,6.2,26,7.9,26h14.1c1.7,0,3.2-1.4,3.2-3.1L26,7.7C26,7.3,
+                        25.9,6.8,25.6,6.5z M15,4 c1.3,0,2.4,0.8,2.8,2h-5.6C12.6,4.9,13.7,4,15,4z M15,22c-2.5,0-4.2-1.8-4.2-1.8l1.1-1.8c0,
+                        0,2,1.5,3.2,1.5 c1.1,0,2.1-0.6,2.1-1.4c0-0.9-0.6-1.3-2.4-1.9c-1.5-0.6-3.5-1.3-3.5-3.4c0-1.9,1.7-3.3,3.9-3.3c2.5,0,
+                        3.8,1.4,3.8,1.4l-1,1.7 c0,0-1.5-1.1-2.8-1.1c-1.1,0-1.9,0.5-1.9,1.3c0,0.6,0.6,1,2.1,1.5c1.6,0.6,3.8,1.4,3.8,3.8C19.1,
+                        20.5,17.3,22,15,22z"></path>
+                        </svg></a></li>
+                    </ul>
+                </div>
+                <div class="contact-info">
+                    <h4>CONTACT US</h4>
+                    <em><p>jgcosmetics@gmail.com</p></em>
+                    
+                </div>
+            </div>
+        </footer>
+        </section>
+    </main>
+
+    <div class="cart-tab">
+        <h1>Shopping Cart</h1>
+        <div class="cart-list">
+            <div class="cart-total-container"></div>
+            <div class="cart-item"></div>
+        </div>
+        <div class="cart-btn">
+            <button class="close-cart-btn">CLOSE</button>
+            <button class="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
+    
+</body>
+</html>
