@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="index.js"></script>
     <script src="cart.js"></script>
-    <script src="checkout.js"></script>
-    <script src="prod-details.js"></script>
+    <script src="checkout-logged-in.js"></script>
+    <script src="checkout-guest.js"></script>
+    <!-- <script src="prod-details.js"></script> -->
 
 </head>
 <body>
@@ -76,14 +77,14 @@
 
                 <div class="checkout-step" id="user-info-step-content">
                     <h3>User Information</h3>
-                    <p><strong>Name:</strong> <span id="user-name"> Loading... </span></p>
-                    <p><strong>Username:</strong> <span id="user-username"> Loading... </span></p>
+                    <p id="user-name-container"><strong>Name:</strong> <span id="user-name"> Loading... </span></p>
+                    <p id="user-username-container"><strong>Username:</strong> <span id="user-username"> Loading... </span></p>
 
                     <h4>Shipping Address</h4>
                     <form id="checkout-address-form">
-                        <select id="address-select">
-
-                        </select>
+                        <div id="address-select-container">
+                            <select id="address-select"></select>
+                        </div>
                         
                         <label for="label">Label:</label>
                         <input type="text" id="checkout-label" name="label" required>
@@ -106,10 +107,10 @@
                         <label for="checkout-country">Country</label>
                         <input type="text" name="checkout-country" id="checkout-country" required>
                         
-                        <p>Please click update address (if any field has been updated) before placing an order.</p>
-                        <button type="submit">Update Address</button>
+                        <p id="update-address-msg">Please click update address (if any field has been updated) before placing an order.</p>
+                        <button type="submit" id="update-address-btn">Update Address</button>
 
-                        <p>Want to add a new address?</p>
+                        <p id="add-new-address-msg">Want to add a new address?</p>
                         <button type="button"  id="add-new-address">Add New Address</button>
 
                         <button id="next-to-cart-summary-btn">Next</button>
@@ -139,6 +140,5 @@
             <button class="checkout-btn" onclick="window.location.href='checkout.html'">CHECKOUT</button>
         </div>
     </div>
-    
 </body>
 </html>
