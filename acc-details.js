@@ -90,4 +90,16 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Error fetching addresses:", error);
             addressList.innerHTML = `<p>Error loading addresses.</p>`;
         })
+
+        // Fetch order history
+        fetch(`http://localhost:8080/api/checkout/history/${userId}`)
+        .then(res => res.json())
+        .then(orders => renderOrderHistory(orders))
+        .catch(err => {
+            console.error("Error loading order history:", err);
+            const orderContainer = document.getElementById("order-history-list");
+            orderContainer.innerHTML = `<p>Error loading orders.</p>`;
+        });
+
+
 });

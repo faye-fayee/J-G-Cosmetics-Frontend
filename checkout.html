@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - J & G Cosmetics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="index.js"></script>
+    <script src="cart.js"></script>
+    <script src="checkout.js"></script>
+    <script src="prod-details.js"></script>
+
+</head>
+<body>
+    <main>
+        <section class="main-section">
+            <header class="navbar">
+                <nav class="left-nav">
+                    <div class="img-logo">
+                        <a href="#">
+                        <img src="img/LOGO (NO BG).png" alt="">
+                        </a>
+                    </div>
+                    <div class="unstyled-home-text">
+                        <strong><a href="index.html">HOME</a> </strong>
+                    </div>
+                    <div class="dropdown">
+                        <strong>
+                            <button onclick="myFunction()" class="shop-btn">SHOP
+                                <span class="arrow-down material-symbols-outlined">arrow_drop_down</span>
+                                </button>
+                        </strong>
+                        <div id="myDropdown" class="dropdown-list">
+                            <a href="products.html">All Products</a>
+                            <a href="lips.html">Lips</a>
+                            <a href="eyes.html">Eyes</a>
+                            <a href="brows.html">Brows</a>
+                            <a href="cheeks.html">Cheeks</a>
+                            <a href="tools.html">Tools</a>
+                        </div>
+                    </div>
+                </nav>
+                
+                <nav class="right-nav">
+                    <div class="search-div">
+                        <form>
+                            <div class="search">
+                                <span class="search-icon material-symbols-outlined">search</span>
+                                <input class="search-input" type="search" placeholder="Search for a product...">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="far-right">
+                        <a class="account-link"><span class="person-icon material-symbols-outlined">person</span></a>
+
+
+                        <a class="shopping-cart-container" href="">
+                            <span class="shopping-cart-icon material-symbols-outlined">shopping_cart</span>
+                            <span class="cart-counter">0</span>
+                        </a>
+                        
+                    </div>
+                </nav>
+            </header>
+
+            <div class="checkout-container">
+
+                <div class="progress-bar">
+                    <div class="progress-step active" id="user-info-step">User Info</div>
+                    <div class="progress-step" id="cart-summary-step">Cart Summary</div>
+                </div>
+
+                <div class="checkout-step" id="user-info-step-content">
+                    <h3>User Information</h3>
+                    <p><strong>Name:</strong> <span id="user-name"> Loading... </span></p>
+                    <p><strong>Username:</strong> <span id="user-username"> Loading... </span></p>
+
+                    <h4>Shipping Address</h4>
+                    <form id="checkout-address-form">
+                        <select id="address-select">
+
+                        </select>
+                        
+                        <label for="label">Label:</label>
+                        <input type="text" id="checkout-label" name="label" required>
+
+                        <label for="checkout-full-name">Full Name</label>
+                        <input type="text" name="checkout-full-name" id="checkout-full-name" required>
+                        
+                        <label for="checkout-number">Phone Number</label>
+                        <input type="text" name="checkout-number" id="checkout-number" required>
+                        
+                        <label for="checkout-address-line">Address Line</label>
+                        <input type="text" name="checkout-address-line" id="checkout-address-line" required>
+                        
+                        <label for="checkout-city">City</label>
+                        <input type="text" name="checkout-city" id="checkout-city" required>
+                        
+                        <label for="checkout-postal-code">Postal Code</label>
+                        <input type="text" name="checkout-postal-code" id="checkout-postal-code" required>
+                        
+                        <label for="checkout-country">Country</label>
+                        <input type="text" name="checkout-country" id="checkout-country" required>
+                        
+                        <p>Please click update address (if any field has been updated) before placing an order.</p>
+                        <button type="submit">Update Address</button>
+
+                        <p>Want to add a new address?</p>
+                        <button type="button"  id="add-new-address">Add New Address</button>
+
+                        <button id="next-to-cart-summary-btn">Next</button>
+                    </form>
+                </div>
+                <div class="checkout-step" id="cart-summary-step-content" style="display: none;">
+                    <h3>Cart Summary</h3>
+                    <div class="cart-summary-items"></div>
+                    <div class="cart-summary-total">
+                        <h4>Total: ₱<span id="checkout-cart-total">0.00</span></h4>
+                    </div>
+                    <button id="place-order-btn">Place Order</button>
+                    <button id="back-to-user-info-btn">Back</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="cart-tab">
+        <h1>Shopping Cart</h1>
+        <div class="cart-list">
+            <div class="cart-total-container"></div>
+            <div class="cart-item"></div>
+        </div>
+        <div class="cart-btn">
+            <button class="close-cart-btn">CLOSE</button>
+            <button class="checkout-btn" onclick="window.location.href='checkout.html'">CHECKOUT</button>
+        </div>
+    </div>
+    
+</body>
+</html>

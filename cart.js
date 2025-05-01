@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     closeCartBtn.addEventListener("click", toggleCart);
 
     syncCartFromLocalStorage();
+    fetchCartFromBackend(); 
     calculateCartTotal();
     renderCartItems();
     updateCartCounter(document.querySelector(".cart-counter")); 
-    fetchCartFromBackend(); // Fetch cart from backend on page load
 });
 
 
@@ -22,7 +22,7 @@ function toggleCart(event) {
 function syncCartFromLocalStorage() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (cart.length > 0) {
+    if (cart.length > 0 && !getLoggedInUserId()) {
         syncCartWithBackend(cart);
     }
 }
@@ -54,8 +54,23 @@ function renderCartItems() {
 
     attachCartListeners();
     calculateCartTotal(); // this will now find #cart-total and update it
+    checkCartBeforeCheckout();
 }
 
+function checkCartBeforeCheckout() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const checkoutBtn = document.querySelector(".checkout-btn");
+
+    if (checkoutBtn) {
+        if (cart.length === 0) {
+            checkoutBtn.disabled = true;
+            checkoutBtn.classList.add("disabled");
+        } else {
+            checkoutBtn.disabled = false;
+            checkoutBtn.classList.remove("disabled");
+        }
+    }
+}
 
 // Generate Cart Item HTML
 function createCartItemHTML(item, index) {
@@ -161,9 +176,9 @@ function addToCart(product, selectedShade, quantity) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    syncCartWithBackend(cart);
     updateCartCounter(document.querySelector(".cart-counter"));
     renderCartItems();
-    syncCartWithBackend(cart);
 }
 
 // Create Cart Item Object
@@ -238,6 +253,8 @@ function fetchCartFromBackend() {
 
             localStorage.setItem("cart", JSON.stringify(transformed));
             renderCartItems();
+            updateCartCounter(document.querySelector(".cart-counter"));
+            calculateCartTotal(); 
         })
         .catch(error => {
             console.error("Error fetching cart items:", error);
@@ -280,3 +297,45 @@ function calculateCartTotal() {
         totalElement.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 }
+
+//Place an Order
+function placeOrder() {
+    fetch('/api/place-order', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        items: getCartItemsFromFrontend() // Get the items to send to the backend
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        clearCart();
+        alert('Order placed successfully!');
+        loadUserCart(); // Reload the cart (should be empty if order was placed)
+      } else {
+        alert('Order failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error placing order:', error);
+    });
+  }
+
+// Clear Cart
+  function clearCart() {
+    // Clear localStorage for guest cart
+    localStorage.removeItem('cart');
+  
+    // Optionally, clear the backend cart if needed for logged-in users
+    fetch('/api/clear-cart', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    });
+  }
+  
